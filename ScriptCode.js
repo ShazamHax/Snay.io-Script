@@ -16,7 +16,7 @@ myPatreon.style.cursor = "pointer";
 myDiscord.style = "height: 50px; width: 120px; position: absolute; top: -15px; right: 5px; background-image: url('https://cdn.dribbble.com/users/5242374/screenshots/16641455/media/0a74ea6b1d505b316ced8be139175fc3.gif'); border: 2px solid blue; border-radius: 25px;";
     document.querySelector("#main-menu").append(myDiscord);
     myDiscord.onclick = ()=>{
-    window.open("https://discord.gg/mCT5KfvJ7j");
+    window.open("https://discord.gg/realclan");
 }
 myDiscord.style.cursor = "pointer";
 myDiscord.style.backgroundSize = "100% 100%";
