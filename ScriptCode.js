@@ -1,7 +1,9 @@
 
     'use strict';
 	var myPatreon = document.createElement("div");
-myPatreon.style = "height: 50px; width: 120px; position: absolute; background-image: url('https://cdn.dribbble.com/users/2287419/screenshots/15177508/media/685ba889bceaec17a7742495ff1a4f92.gif'); border-radius: 25px; border: 2px solid blue";
+//myPatreon.style = "height: 50px; width: 120px; position: absolute; background-image: url('https://cdn.dribbble.com/users/2287419/screenshots/15177508/media/685ba889bceaec17a7742495ff1a4f92.gif'); border-radius: 25px; border: 2px solid blue";
+myPatreon.style = "height: 50px; width: 120px; position: absolute; border-radius: 25px; border: 2px solid blue";
+myPatreon.innerText = "Patreon";
 document.querySelector("#main-menu").append(myPatreon)
 
 myPatreon.style.top = "35px";
@@ -13,7 +15,9 @@ myPatreon.onclick = ()=>{
 }
 myPatreon.style.cursor = "pointer";
 	var myDiscord = document.createElement("div");
-myDiscord.style = "height: 50px; width: 120px; position: absolute; top: -15px; right: 5px; background-image: url('https://cdn.dribbble.com/users/5242374/screenshots/16641455/media/0a74ea6b1d505b316ced8be139175fc3.gif'); border: 2px solid blue; border-radius: 25px;";
+//myDiscord.style = "height: 50px; width: 120px; position: absolute; top: -15px; right: 5px; background-image: url('https://cdn.dribbble.com/users/5242374/screenshots/16641455/media/0a74ea6b1d505b316ced8be139175fc3.gif'); border: 2px solid blue; border-radius: 25px;";
+myDiscord.style = "height: 50px; width: 120px; position: absolute; top: -15px; right: 5px; border: 2px solid blue; border-radius: 25px;";
+myDiscord.innerText = "Discord";
     document.querySelector("#main-menu").append(myDiscord);
     myDiscord.onclick = ()=>{
     window.open("https://discord.gg/realclan");
