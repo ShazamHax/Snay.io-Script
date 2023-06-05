@@ -381,8 +381,8 @@ setInterval(function(){if (document.querySelector("button#spamLastEmoteBtn.on"))
 			document.querySelector("button#spectate-btn").style.backgroundImage = "url('https://www.freeiconspng.com/uploads/eye-icon--icon-search-engine-17.png')";
 			document.querySelector("button#spectate-btn").style.border = "3px solid white";
 			document.querySelector("button#spectate-btn").style.backgroundColor = "gray";
-			document.querySelector("button#settings-btn").style.backgroundImage = "url('http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/90db49863f26a04.png')"
-		"url('http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/90db49863f26a04.png')";
+			document.querySelector("button#settings-btn").style.backgroundImage = "url('http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/90db49863f26a04.png')";
+		document.querySelector("button#settings-btn").style.backgroundImage = "url('http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/90db49863f26a04.png')";
 			document.querySelector("#settings-btn").style.backgroundColor = "gray";
 		document.querySelector("#modmenu").style.height = "fit-content";
 		if (document.querySelector(".WizSkin")){
