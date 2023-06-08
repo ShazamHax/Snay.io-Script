@@ -790,6 +790,7 @@ cellsContainer.style.border = "1px solid blue";
 currentSplitsText.innerText = "Cells: ";
 newStats.style.display = "flex";
 newStats.style.columnGap = "20px";
+newStats.style.fontSize = "20px";
 Stats.append(newStats);
 newStats.append(cellsContainer);
 cellsContainer.append(currentSplitsText);
