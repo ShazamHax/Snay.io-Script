@@ -783,11 +783,18 @@ var Stats = document.querySelector("#stats1");
 var newStats = document.createElement("div");
 var currentSplits = document.createElement("div");
 var currentSplitsText = document.createElement("div");
+var cellsContainer = docuemnt.createElement("div");
+cellsContainer.style.display = "flex";
+cellsContainer.style.columnGap = "10px";
+cellsContainer.style.border = "1px solid blue";
 currentSplitsText.innerText = "Cells: ";
 newStats.style.display = "flex";
+newStats.style.columnGap = "20px";
 Stats.append(newStats);
-newStats.append(currentSplitsText);
-newStats.append(currentSplits);
+newStats.append(cellsContainer);
+cellsContainer.append(currentSplitsText);
+cellsContainer.append(currentSplits);
+
 
 setInterval(()=>{
     currentSplits.innerText = window.stats.mycells;
