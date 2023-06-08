@@ -779,4 +779,20 @@ modBtns[i].addEventListener("mouseleave", ()=>{
     modBtns[i].style.transform = "scale(1)";
 })
 }
+var Stats = document.querySelector("#stats1");
+var newStats = document.createElement("div");
+var currentSplits = document.createElement("div");
+var currentSplitsText = document.createElement("div");
+currentSplitsText.innerText = "Split Cells: ";
+Stats.append(newStats);
+newStats.append(currentSplitsText);
+newStats.append(currentSplits);
+
+setInterval(()=>{
+    currentSplits.innerText = window.stats.mycells;
+    
+    
+});
+
+
 		  loading();
