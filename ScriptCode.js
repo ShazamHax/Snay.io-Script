@@ -797,7 +797,7 @@ cellsContainer.append(currentSplits);
 
 
 setInterval(()=>{
-    if (window.settings.gamemode == "selfeed"){
+    if (window.settings.gamemode == "Selfeed"){
 	    	currentSplits.innerText = window.stats.mycells + "/64";
     } else {
 	    	 currentSplits.innerText = window.stats.mycells + "/16";
