@@ -643,7 +643,10 @@ emojiBindBtns[i].onclick = ()=>{
 								var daLink = emojiLinks[setEmojiBinds[i].className.split("Bind")[1]].replace("https://www.snay.io", ".");
 
 								if (event.key == setEmojiBinds[i].innerText){
-									 document.querySelector("img[src='"+ daLink + "']").click()
+									if (document.querySelector("#chat_textbod").value == ""){
+										document.querySelector("img[src='"+ daLink + "']").click()
+									}
+									 
 								}
 							}
 							}
