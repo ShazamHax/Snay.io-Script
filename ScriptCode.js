@@ -799,25 +799,6 @@ newStats.append(cellsContainer);
 cellsContainer.append(currentSplitsText);
 cellsContainer.append(currentSplits);
 
-var macroQuadBtn = document.createElement("button");
-macroQuadBtn.innerText = "MacroQuad";
-document.querySelector("#HUD").append(macroQuadBtn);
-var macroQuadBtn = document.createElement("button");
-macroQuadBtn.innerText = "MacroQuad";
-macroQuadBtn.style = "position: absolute; left: 500px; top: 500px;";
-macroQuadBtn.style.left = "10%";
-macroQuadBtn.style.top = "60%";
-macroQuadBtn.style.bottom = "30%";
-macroQuadBtn.onclick = ()=>{
-    Split4MacroStart();
-    MacroStart();
-    setTimeout(()=>{
-        MacroEnd();
-    }, 80);
-}
-document.querySelector("#mobileStuff").append(macroQuadBtn);
-document.querySelector("#mobileStuff").hidden = "";
-      
 
 setInterval(()=>{
     if (window.settings.gamemode == "Selfeed"){
