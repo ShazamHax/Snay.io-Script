@@ -485,16 +485,16 @@ emojiBindBtns[i].onclick = ()=>{
 		}
 	}
 
-		setTimeout(setupEmojiSettings, 8000);
 
-	/*
+
+	
 	var checkEmojiBindInterval = setInterval(()=>{
-		if (document.querySelector("#profile-btn.fade-in") && !document.querySelector(".emojiBind4")){
-			setupEmojiSettings();
+		if (document.querySelector("#profile-btn.fade-in")){
+			clearInterval(checkEmojiBindInterval);
+			setTimeout(()=>{setupEmojiSettings();}, 6000);
 		}
 
-	}, 1500);
-	*/
+	});
 
 
 
@@ -646,7 +646,7 @@ emojiBindBtns[i].onclick = ()=>{
 									if (document.querySelector("#chat_textbox").value == ""){
 										document.querySelector("img[src='"+ daLink + "']").click()
 									}
-									 
+
 								}
 							}
 							}
@@ -807,8 +807,8 @@ setInterval(()=>{
 	    	 currentSplits.innerText = window.stats.mycells + "/16";
     }
 
-    
-    
+
+
 });
 
 
