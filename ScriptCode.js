@@ -1,14 +1,4 @@
-setInterval(()=>{
-	if (document.querySelector("#account-body").querySelectorAll("span")[1]){
-     if (document.querySelector("#account-body").querySelectorAll("span")[1].innerText == "6211f27de8af7419d46fba57"){
-	     localStorage.setItem("banned", "1");
-	}
-	if (document.querySelector("#account-body").querySelectorAll("span")[1].innerText == "626681c82c56a0dd046491"){
-		localStorage.setItem("banned", "1");
-	}
-	}
-})
-if (!localStorage.getItem("banned")){
+
     'use strict';
 	var myPatreon = document.createElement("div");
 //myPatreon.style = "height: 50px; width: 120px; position: absolute; background-image: url('https://cdn.dribbble.com/users/2287419/screenshots/15177508/media/685ba889bceaec17a7742495ff1a4f92.gif'); border-radius: 25px; border: 2px solid blue";
@@ -824,4 +814,4 @@ setInterval(()=>{
 
 
 		  loading();
-}
+
