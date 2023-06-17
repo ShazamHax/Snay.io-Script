@@ -814,6 +814,8 @@ for (let i = 0; i<lvlSkins.length; i++){
     }
 }, 1000);
 
+/*
+
 function removeBoughtPremiumSkins(){
 var premiumSkins = document.querySelector("label[for='Premium']").nextElementSibling.firstChild.querySelectorAll("img");
 
@@ -844,6 +846,7 @@ setInterval(()=>{
         removeBoughtPremiumSkins();
     }
 })
+*/
 
 setInterval(()=>{
     if (window.settings.gamemode == "Selfeed"){
