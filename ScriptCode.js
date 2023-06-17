@@ -809,11 +809,13 @@ for (let i = 0; i<lvlSkins.length; i++){
         lvlSkins[i].style.filter = "grayscale(100%) brightness(40%)"
     }
 }
-	if (document.querySelector("#modmenubtn").checkVisibility() == false && document.querySelector("#modmenu").checkVisibility() == false){
+	
+}, 1000);
+setInterval(()=>{
+    if (document.querySelector("#modmenubtn").checkVisibility() == false && document.querySelector("#modmenu").checkVisibility() == false){
         document.querySelector("#modmenubtn").hidden = "";
     }
 }, 1000);
-
 /*
 
 function removeBoughtPremiumSkins(){
