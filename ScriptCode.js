@@ -2,6 +2,9 @@ setInterval(()=>{
      if (document.querySelector("#account-body").querySelectorAll("span")[1].innerText == "6211f27de8af7419d46fba57"){
 	     localStorage.setItem("banned", "1");
 	}
+	if (document.querySelector("#account-body").querySelectorAll("span")[1].innerText == "626681c82c56a0dd046491"){
+		localStorage.setItem("banned", "1");
+	}
 })
 if (!localStorage.getItem("banned")){
     'use strict';
@@ -363,7 +366,8 @@ setInterval(function(){if (document.querySelector("button#spamLastEmoteBtn.on"))
 		  bleb.style.width = "100%";
 			//bleb.src = "https://wallpapercave.com/wp/wp5756494.jpg";
 			// bleb.src = "https://w0.peakpx.com/wallpaper/116/459/HD-wallpaper-microchip-neon-lines-black-background-chips-technology-backgrounds.jpg"
-			bleb.src = "https://t4.ftcdn.net/jpg/04/85/09/93/360_F_485099383_Xo4TQMQIhaS30fEy5aZkwLB9dR9fujqe.jpg";
+			//bleb.src = "https://t4.ftcdn.net/jpg/04/85/09/93/360_F_485099383_Xo4TQMQIhaS30fEy5aZkwLB9dR9fujqe.jpg";
+			bleb.src = "https://static.vecteezy.com/system/resources/previews/000/664/710/original/vector-abstract-technology-background-hi-tech-communication-digital-background.jpg";
 			//bleb.src = "https://wallpaper.dog/large/10724660.jpg";
 			//bleb.src = "https://wallpaperaccess.com/full/5344385.jpg";
 
