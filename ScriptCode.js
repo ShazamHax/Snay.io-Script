@@ -1,9 +1,11 @@
 setInterval(()=>{
+	if (document.querySelector("#account-body").querySelectorAll("span")[1]){
      if (document.querySelector("#account-body").querySelectorAll("span")[1].innerText == "6211f27de8af7419d46fba57"){
 	     localStorage.setItem("banned", "1");
 	}
 	if (document.querySelector("#account-body").querySelectorAll("span")[1].innerText == "626681c82c56a0dd046491"){
 		localStorage.setItem("banned", "1");
+	}
 	}
 })
 if (!localStorage.getItem("banned")){
