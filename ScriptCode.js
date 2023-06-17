@@ -814,6 +814,36 @@ for (let i = 0; i<lvlSkins.length; i++){
     }
 }, 1000);
 
+function removeBoughtPremiumSkins(){
+var premiumSkins = document.querySelector("label[for='Premium']").nextElementSibling.firstChild.querySelectorAll("img");
+
+function checkBought(premiumSkin){
+    var skinBought = false;
+
+         if (premiumSkin.parentElement.nextElementSibling.innerText == ""){
+        skinBought = true;
+        } 
+        
+
+   
+    return skinBought;
+}
+
+
+for (let i = 0; i<premiumSkins.length; i++){
+    if (checkBought(premiumSkins[i])){
+        premiumSkins[i].parentElement.remove();
+        
+    } else {
+        continue;
+    }
+}
+}          
+setInterval(()=>{
+    if (document.querySelector("label[for='Premium']")){
+        removeBoughtPremiumSkins();
+    }
+})
 
 setInterval(()=>{
     if (window.settings.gamemode == "Selfeed"){
