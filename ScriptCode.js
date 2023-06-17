@@ -855,19 +855,7 @@ setInterval(()=>{
 
 
 });
-for (let i = 0; i<customSkins.length; i++){
-    customSkins[i].style.transition = "all 1s ease";
-    customSkins[i].addEventListener("mouseenter", (event)=>{
-        if (event){
-            customSkins[i].style.transform = "scale(1.2)";
-        }
-    });
-    customSkins[i].addEventListener("mouseleave", (event)=>{
-        if (event){
-            customSkins[i].style.transform = "scale(1)";
-        }
-    });
-}
+
 
 		  loading();
 
