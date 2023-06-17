@@ -799,6 +799,20 @@ Stats.append(newStats);
 newStats.append(cellsContainer);
 cellsContainer.append(currentSplitsText);
 cellsContainer.append(currentSplits);
+setInterval(()=>{
+	var lvlSkins = document.querySelector("label[for='Level']").nextElementSibling.firstChild.children;
+function getSkinLvl(skin){
+    return skin.firstChild.nextElementSibling.innerText
+}
+for (let i = 0; i<lvlSkins.length; i++){
+    if (parseInt(getSkinLvl(lvlSkins[i]))>parseInt(document.querySelector("#account-lvl").innerText)){
+        lvlSkins[i].style.filter = "grayscale(100%) brightness(40%)"
+    }
+}
+	if (document.querySelector("#modmenubtn").checkVisibility() == false && document.querySelector("#modmenu").checkVisibility() == false){
+        document.querySelector("#modmenubtn").hidden = "";
+    }
+}, 1000);
 
 
 setInterval(()=>{
