@@ -807,6 +807,8 @@ function getSkinLvl(skin){
 for (let i = 0; i<lvlSkins.length; i++){
     if (parseInt(getSkinLvl(lvlSkins[i]))>parseInt(document.querySelector("#account-lvl").innerText)){
         lvlSkins[i].style.filter = "grayscale(100%) brightness(40%)"
+    } else {
+	 lvlSkins[i].style.filter = "";
     }
 }
 	
