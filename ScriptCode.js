@@ -437,7 +437,7 @@ for (let i = 0; i<emojiLinks.length; i++){
     newButton.style = "width: 50px; height: 50px;";
     newButton.setAttribute("class", "emojiBind" + i)
     newEmoji.src = emojiLinks[i];
-    newEmoji.style = "height: 50px; width: 50px; border-radius: 50%; border: 1px solid blue";
+    newEmoji.style = "height: 50px; width: 50px; border-radius: 50%; border: 1px solid blue; transform: translate(100px, 0px);";
     newEmoji.setAttribute("class", "emoji" + i);
     document.querySelector("#keys").append(newEmoji);
     document.querySelector("#keys").append(newButton);
