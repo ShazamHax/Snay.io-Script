@@ -28,6 +28,25 @@ myDiscord.style.backgroundRepeat = "no-repeat";
 
 var customSkinList = ["https://yt3.googleusercontent.com/TNVorEJ9iTsESmUbcZXizwaZgy5jB-Ihx3z9qxfuuatrFRDhJHotz5x_X7mGIu38VBsr5bvlkg=s176-c-k-c0x00ffffff-no-rj" ]
 
+
+function checkCustomSkin(customLink){
+	var customExists = false
+
+     	var customSkins = document.querySelector(".customSkinContainer").children;
+	for (let i = 0; i<customSkins.length; i++){
+		if (customLink != customSkins[i].src){
+			customExists = false;
+
+		} else {
+			customExists = true;
+			break;
+
+		}
+	}
+
+	return customExists;
+}
+
 	var mainContainer = document.querySelector("label").nextElementSibling;
 var customSkinContainer = document.createElement("div");
 customSkinContainer.setAttribute("class", "customSkinContainer");
@@ -38,7 +57,7 @@ saveSkinBtn.append(saveSkinText);
 saveSkinBtn.style = "height: 50px; width: 100px; background: lightgreen; border-radius: 25px;";
 
 saveSkinBtn.onclick = ()=> {
-	if (document.querySelector("#customSkin").value){
+	if (document.querySelector("#customSkin").value && !checkCustomSkin(document.querySelector("#customSkin").value)){
 			addNewCustomSkin("Skin" + document.querySelector(".customSkinContainer").children.length, document.querySelector("#customSkin").value, 1);
 			if (localStorage.getItem("customSkins")){
 				localStorage.setItem("customSkins", localStorage.getItem("customSkins") + ", " + document.querySelector("#customSkin").value);
@@ -86,6 +105,7 @@ mainContainer.append(customSkinContainer);
 function addNewCustomSkin(name, link, custom) {
 
     var newSkin = document.createElement("img");
+
 	if (custom == 0) {
 		newSkin.setAttribute("class", name);
 	} else {
@@ -96,9 +116,23 @@ function addNewCustomSkin(name, link, custom) {
 		}
 	}
     mainContainer.style = "";
+	newSkin.addEventListener("mouseenter", (event)=>{
+		if (event){
+			newSkin.style.transform = "scale(1.2)";
+		}
+	});
+	newSkin.addEventListener("mouseleave", (event)=>{
+		if (event){
+			newSkin.style.transform = "scale(1)";
+		}
+	});
+
+
     customSkinContainer.append(newSkin);
+
+	customSkinContainer.style.overflow = "visible"
     document.querySelector("." + name).src = link;
-    document.querySelector("." + name).style = "height: 100px; width: 100px; border-radius: 50%; cursor: pointer; border: 1.5px solid blue; border-style: dotted;";
+    document.querySelector("." + name).style = "height: 100px; width: 100px; border-radius: 50%; cursor: pointer; border: 1.5px solid blue; border-style: dotted; transition: all 1s ease";
 document.querySelector("." + name).onclick = ()=>{settings.customSkin = link; connect(settings.server); document.querySelector(".windowclosebtn").click();};
 }
 
@@ -488,7 +522,7 @@ emojiBindBtns[i].onclick = ()=>{
 
 
 
-	
+
 	var checkEmojiBindInterval = setInterval(()=>{
 		if (document.querySelector("#profile-btn.fade-in")){
 			clearInterval(checkEmojiBindInterval);
@@ -811,7 +845,7 @@ for (let i = 0; i<lvlSkins.length; i++){
 	 lvlSkins[i].style.filter = "";
     }
 }
-	
+
 }, 1000);
 setInterval(()=>{
     if (document.querySelector("#modmenubtn").checkVisibility() == false && document.querySelector("#modmenu").checkVisibility() == false){
@@ -828,10 +862,10 @@ function checkBought(premiumSkin){
 
          if (premiumSkin.parentElement.nextElementSibling.innerText == ""){
         skinBought = true;
-        } 
-        
+        }
 
-   
+
+
     return skinBought;
 }
 
@@ -839,12 +873,12 @@ function checkBought(premiumSkin){
 for (let i = 0; i<premiumSkins.length; i++){
     if (checkBought(premiumSkins[i])){
         premiumSkins[i].parentElement.remove();
-        
+
     } else {
         continue;
     }
 }
-}          
+}
 setInterval(()=>{
     if (document.querySelector("label[for='Premium']")){
         removeBoughtPremiumSkins();
@@ -865,4 +899,3 @@ setInterval(()=>{
 
 
 		  loading();
-
