@@ -116,23 +116,15 @@ function addNewCustomSkin(name, link, custom) {
 		}
 	}
     mainContainer.style = "";
-	newSkin.addEventListener("mouseenter", (event)=>{
-		if (event){
-			newSkin.style.transform = "scale(1.2)";
-		}
-	});
-	newSkin.addEventListener("mouseleave", (event)=>{
-		if (event){
-			newSkin.style.transform = "scale(1)";
-		}
-	});
+     newSkin.classList.add("circular");
+	
 
 
     customSkinContainer.append(newSkin);
 
 	customSkinContainer.style.overflow = "visible"
     document.querySelector("." + name).src = link;
-    document.querySelector("." + name).style = "height: 100px; width: 100px; border-radius: 50%; cursor: pointer; border: 1.5px solid blue; border-style: dotted; transition: all 1s ease";
+    document.querySelector("." + name).style = "height: 100px; width: 100px; border-radius: 50%; cursor: pointer; border: 1.5px solid blue; border-style: dotted;";
 document.querySelector("." + name).onclick = ()=>{settings.customSkin = link; connect(settings.server); document.querySelector(".windowclosebtn").click();};
 }
 
@@ -584,7 +576,8 @@ emojiBindBtns[i].onclick = ()=>{
 
 		function randomIntFromInterval(min, max) { // min and max included
 		  return Math.floor(Math.random() * (max - min + 1) + min);
-		}
+		} 
+
 
 
 
