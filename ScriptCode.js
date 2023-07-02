@@ -124,7 +124,7 @@ function addNewCustomSkin(name, link, custom) {
 
 	customSkinContainer.style.overflow = "visible"
     document.querySelector("." + name).src = link;
-    document.querySelector("." + name).style = "height: 100px; width: 100px; border-radius: 50%; cursor: pointer; border: 1.5px solid blue; border-style: dotted;";
+    document.querySelector("." + name).style = "height: 150px; width: 150px; border-radius: 50%; cursor: pointer; border: 1.5px solid blue; border-style: dotted;";
 document.querySelector("." + name).onclick = ()=>{settings.customSkin = link; connect(settings.server); document.querySelector(".windowclosebtn").click();};
 }
 
