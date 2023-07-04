@@ -6,10 +6,12 @@ document.querySelector("#store-body").style.backgroundColor = "black";
 document.querySelector("#store-header").style.backgroundColor = "black";
 document.querySelector("#gallery-content").style.background = "black";
 document.querySelector("#gallery-header").style.backgroundColor = "black";
-document.querySelector("#gallery-content").querySelectorAll("label").forEach((elem)=>{
-    elem.style.backgroundColor = "gray";
-    elem.style.borderRadius = "20%";
-})
+setTimeout(()=>{
+	document.querySelector("#gallery-content").querySelectorAll("label").forEach((elem)=>{
+  	  elem.style.backgroundColor = "gray";
+  	  elem.style.borderRadius = "20%";
+	})
+}, 5000);
 	var myPatreon = document.createElement("div");
 //myPatreon.style = "height: 50px; width: 120px; position: absolute; background-image: url('https://cdn.dribbble.com/users/2287419/screenshots/15177508/media/685ba889bceaec17a7742495ff1a4f92.gif'); border-radius: 25px; border: 2px solid blue";
 myPatreon.style = "height: 50px; width: 120px; position: absolute; border-radius: 25px; border: 2px solid blue; background: gray; text-align: center; color: white;";
