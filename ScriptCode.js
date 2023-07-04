@@ -1,5 +1,9 @@
 
     'use strict';
+document.querySelector("#seasons-body").style.backgroundColor = "black";
+document.querySelector("#seasons-header").style.backgroundColor = "black";
+document.querySelector("#store-body").style.backgroundColor = "black";
+document.querySelector("#store-header").style.backgroundColor = "black";
 document.querySelector("#gallery-content").style.background = "black";
 document.querySelector("#gallery-header").style.backgroundColor = "black";
 document.querySelector("#gallery-content").querySelectorAll("label").forEach((elem)=>{
