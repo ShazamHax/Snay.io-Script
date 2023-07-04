@@ -642,7 +642,8 @@ var setLabels = setInterval(()=>{
         clearInterval(setLabels);
 	}
 });
-
+document.querySelector("#gallery-body").style.backgroundImage = "linear-gradient(to bottom, black, darkblue, black)";
+document.querySelector(".windowclosebtn").style.filter = "hue-rotate(200deg)";
 
 
 
