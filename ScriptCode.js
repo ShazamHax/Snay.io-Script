@@ -614,8 +614,9 @@ emojiBindBtns[i].onclick = ()=>{
 		function clickEmoji(emojiElem){
 				emojiElem.firstChild.click()
 			}
-		var labels = document.querySelector("#gallery-body").querySelectorAll("label");
+		
 setInterval(()=>{
+var labels = document.querySelector("#gallery-body").querySelectorAll("label");
     for (let i = 0; i<labels.length; i++){
         if (labels[i].nextElementSibling.checkVisibility()){
             labels[i].style.backgroundColor = "lightblue";
