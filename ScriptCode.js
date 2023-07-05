@@ -118,7 +118,7 @@ function addNewCustomSkin(name, link, custom) {
 	}
     mainContainer.style = "";
      newSkin.classList.add("circular");
-	
+
 
 
     customSkinContainer.append(newSkin);
@@ -516,15 +516,44 @@ emojiBindBtns[i].onclick = ()=>{
 	}
 
 
+	function clearEmojisBinds(){
+		document.querySelector(".emojiBindTitle").remove();
+		document.querySelector(".restoreEmojiBinds").remove();
+		document.querySelector("#keys").querySelectorAll("button").forEach((button)=>{button.remove()});
+		document.querySelector("#keys").querySelectorAll("img").forEach((button)=>{button.remove()});
+	}
 
+	function refreshEmojiSettings(){
+		clearEmojisBinds();
+		setupEmojiSettings();
+	}
 
-	var checkEmojiBindInterval = setInterval(()=>{
-		if (document.querySelector("#profile-btn.fade-in")){
-			clearInterval(checkEmojiBindInterval);
-			setTimeout(()=>{setupEmojiSettings();}, 6000);
-		}
+	// Function to create a custom event
+function createLoginEvent() {
+  // Create a new MutationObserver
+  const observer = new MutationObserver(function () {
+    const isLoggedIn = document.querySelector("#profile-btn.fade-in") !== null;
+    if (isLoggedIn) {
+		console.log("Logged in, adding emojis settings");
+		setTimeout(()=>{setupEmojiSettings();}, 5000);
+    } else {
+		console.log("Logged out, removing emojis settings");
+		clearEmojisBinds();
+    }
+  });
 
-	});
+  // Start observing changes in the target element
+  const targetElement = document.querySelector("#profile-btn");
+  if (targetElement) {
+    observer.observe(targetElement, { attributes: true, attributeFilter: ['class'] });
+  } else {
+    console.error("Target element not found.");
+  }
+}
+
+// Usage:
+createLoginEvent();
+
 
 
 
@@ -579,7 +608,7 @@ emojiBindBtns[i].onclick = ()=>{
 
 		function randomIntFromInterval(min, max) { // min and max included
 		  return Math.floor(Math.random() * (max - min + 1) + min);
-		} 
+		}
 
 
 
@@ -614,7 +643,7 @@ emojiBindBtns[i].onclick = ()=>{
 		function clickEmoji(emojiElem){
 				emojiElem.firstChild.click()
 			}
-		
+
 setInterval(()=>{
 var labels = document.querySelector("#gallery-body").querySelectorAll("label");
     for (let i = 0; i<labels.length; i++){
