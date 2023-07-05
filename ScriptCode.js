@@ -268,6 +268,9 @@
 			}
 
 			newBtn.onclick = ()=>{
+				if (id == "soundEffectsBtn"){
+					soundEffects();
+				}
 				if (def == "off"){
 					if (document.querySelector("button#" + id + ".on")){
                          localStorage.removeItem(ls);
@@ -651,7 +654,11 @@
 			}, 800);
 
 
+
+		var gameover = document.querySelector("#game-over");
            	setInterval(()=> {
+
+
 				if (window.isbot == true) {
 					signOut();
 				} else {
@@ -661,8 +668,17 @@
 				}
 
 			  if (document.querySelector("button#respawnButton.on")){
+
+				  if (document.querySelector("#game-over")){
+					  document.querySelector("#game-over").remove()
+				  }
+
 					if (stats.mycells == 0) {
 						play();
+					}
+				} else {
+					if (!document.querySelector("#game-over")){
+						document.querySelector("#root").append(gameover);
 					}
 				}
 		  }, 400);
