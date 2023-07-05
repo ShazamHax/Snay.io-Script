@@ -535,7 +535,10 @@ function createLoginEvent() {
     const isLoggedIn = document.querySelector("#profile-btn.fade-in") !== null;
     if (isLoggedIn) {
 		console.log("Logged in, adding emojis settings");
-		setTimeout(()=>{setupEmojiSettings();}, 5000);
+		setTimeout(()=>{if (!document.querySelector(".emojiBindTitle")){
+			setupEmojiSettings();
+		}
+		}, 5000);
     } else {
 		console.log("Logged out, removing emojis settings");
 		clearEmojisBinds();
