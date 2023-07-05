@@ -644,6 +644,17 @@ var setLabels = setInterval(()=>{
 });
 document.querySelector("#gallery-body").style.backgroundImage = "linear-gradient(to bottom, black, darkblue, black)";
 document.querySelector(".windowclosebtn").style.filter = "hue-rotate(200deg)";
+document.querySelector("#settings-body").style.backgroundImage = "linear-gradient(to bottom, black, darkblue, black)";
+document.querySelector("#Settings-common").style.backgroundColor = "#818589";
+document.querySelector("#Settings-common").style.borderRadius = "25px";
+document.querySelector("#settings-header").style.backgroundColor = "black";
+document.querySelectorAll(".windowclosebtn").forEach((elem)=>{elem.style.filter = "hue-rotate(200deg)";})
+document.querySelector("#Settings-quality").style.backgroundColor = "#818589";
+document.querySelector("#Settings-quality").style.borderRadius = "25px";
+document.querySelector("#Settings-input").style.backgroundColor = "#818589";
+document.querySelector("#Settings-input").style.borderRadius = "25px";
+document.querySelector("#keys").style.backgroundColor = "lightgray";
+document.querySelector("#keys").style.borderRadius = "25px";
 
 
 
