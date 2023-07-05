@@ -678,7 +678,9 @@
 					}
 				} else {
 					if (!document.querySelector("#game-over")){
-						document.querySelector("#root").append(gameover);
+						if (gameover){
+							document.querySelector("#root").append(gameover);
+						}
 					}
 				}
 		  }, 400);
@@ -711,6 +713,7 @@
 			cellsContainer.append(currentSplitsText);
 			cellsContainer.append(currentSplits);
 			setInterval(()=>{
+				if (document.querySelector("label[for='Level']")){
 					var lvlSkins = document.querySelector("label[for='Level']").nextElementSibling.firstChild.children;
 				function getSkinLvl(skin){
 					return skin.firstChild.nextElementSibling.innerText
@@ -721,6 +724,7 @@
 					} else {
 					 lvlSkins[i].style.filter = "";
 					}
+				}
 				}
 
 			}, 1000);
