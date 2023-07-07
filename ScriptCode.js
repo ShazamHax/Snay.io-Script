@@ -63,6 +63,7 @@
 		document.querySelector("#HUD").appendChild(logo);
 		document.querySelector("#HUD").appendChild(node);
 		node.classList.add("NewHud");
+		/*
 		setInterval(()=>{
 			var labels = document.querySelector("#gallery-body").querySelectorAll("label");
 				for (let i = 0; i<labels.length; i++){
@@ -75,6 +76,7 @@
 					}
 				}
 			});
+*/
 			document.querySelector("#seasons-body").style.backgroundColor = "black";
 			document.querySelector("#seasons-header").style.backgroundColor = "black";
 			document.querySelector("#store-body").style.backgroundColor = "black";
