@@ -81,6 +81,7 @@
 			document.querySelector("#store-header").style.backgroundColor = "black";
 			document.querySelector("#gallery-content").style.background = "black";
 			document.querySelector("#gallery-header").style.backgroundColor = "black";
+			/*
 			var setLabels = setInterval(()=>{
 				if (document.querySelector("#gallery-content").checkVisibility()){
 				document.querySelector("#gallery-content").querySelectorAll("label").forEach((elem)=>{
@@ -90,6 +91,7 @@
 					clearInterval(setLabels);
 				}
 			});
+*/
 			document.querySelector("#gallery-body").style.backgroundImage = "linear-gradient(to bottom, black, darkblue, black)";
 			document.querySelector(".windowclosebtn").style.filter = "hue-rotate(200deg)";
 			document.querySelector("#settings-body").style.backgroundImage = "linear-gradient(to bottom, black, darkblue, black)";
@@ -351,12 +353,16 @@
 			bleb.src = "https://github.com/GravityGYT/Script/blob/main/download.jpg?raw=true";
 
 			bleb.zIndex = "3";
+			
+			meny.appendChild(bleb);
+			/*
 			var checkBackground = setInterval(()=>{
 				if(!bleb.checkVisibility()){
 					clearInterval(checkBackground);
 					meny.appendChild(bleb);
 				}
 			});
+			*/
 			bleb.style.position = "absolute";
 			}, 3000);
 			document.querySelector("#title").style.zIndex = "2";
@@ -731,7 +737,7 @@
 
 
 			setInterval(()=>{
-				if (document.querySelector("#modmenubtn").checkVisibility() == false && document.querySelector("#modmenu").checkVisibility() == false){
+				if (document.querySelector("#modmenubtn").hidden == true && document.querySelector("#modmenu").hidden == true){
 					document.querySelector("#modmenubtn").hidden = "";
 				}
 			}, 1000);
