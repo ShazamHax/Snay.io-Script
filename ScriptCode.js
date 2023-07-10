@@ -1,5 +1,87 @@
 
 	function setupUI(){
+		var style = document.createElement('style');
+    style.type = 'text/css';
+
+    // Define the CSS styles
+    var css = `
+        #modmenu {
+            background-color: #282b30;
+            border: none;
+            border-radius: 10px;
+            margin-top: 100px;
+            margin-right: -40px;
+            padding-left: 10px;
+        }
+
+        #modmenuclosebtn {
+            scale: 1;
+            margin-top: 84px;
+            margin-right: 117px;
+            background: url("https://i.imgur.com/xDFW0d6.png");
+			background-size: contain;
+			position: absolute;
+			left: -3%;
+			top: -14%;
+
+
+        }
+
+        #modmenutitle {
+            color: #7289da;
+            margin-bottom: 10px;
+        }
+
+        #modmenusubtitle {
+            color: #ffffff;
+        }
+
+        #modmenu .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: -5px;
+            margin-right: 3%;
+            width: 100%;
+        }
+
+        #modmenu .buttons button {
+            margin: 5px;
+            padding: 5px 10px;
+            background-color: #7289da;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 3px;
+            width: 90%;
+            cursor: pointer;
+        }
+    `;
+
+    // Add the CSS styles to the <style> element
+    if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+    } else {
+        style.appendChild(document.createTextNode(css));
+    }
+
+    // Append the <style> element to the document's <head>
+    document.head.appendChild(style);
+		var modmenu = document.getElementById('modmenu');
+
+    var modmenutitle = document.createElement('div');
+    modmenutitle.id = 'modmenutitle';
+    modmenutitle.textContent = 'Extras😉';
+
+
+    var buttonsContainer = document.createElement('div');
+    buttonsContainer.classList.add('buttons');
+modmenu.appendChild(modmenutitle);
+modmenu.appendChild(document.createElement("br"));
+modmenu.appendChild(document.createElement("br"));
+modmenu.appendChild(document.createElement("br"));
+    modmenu.appendChild(buttonsContainer);
+
 		var myPatreon = document.createElement("div");
 		//myPatreon.style = "height: 50px; width: 120px; position: absolute; background-image: url('https://cdn.dribbble.com/users/2287419/screenshots/15177508/media/685ba889bceaec17a7742495ff1a4f92.gif'); border-radius: 25px; border: 2px solid blue";
 		myPatreon.style = "height: 50px; width: 120px; position: absolute; border-radius: 25px; border: 2px solid blue; background: gray; text-align: center; color: white;";
@@ -237,8 +319,9 @@
 		function createModBtn(id, def, ls, btnName){
 			var newBtn = document.createElement("button");
 			newBtn.setAttribute("id", id);
-			document.querySelector("#modmenu").append(newBtn);
+			document.querySelector(".buttons").append(newBtn);
 			var newBtnOutput = document.createElement("output");
+			newBtnOutput.style.color = "white";
 			newBtnOutput.setAttribute("id", id + "OutputValue");
 			newBtn.append(newBtnOutput);
 			var newBtnValueOn = document.createTextNode(btnName +": On");
@@ -248,24 +331,20 @@
 				if (localStorage.getItem(ls)){
 					newBtn.setAttribute("class", "on");
 					newBtnOutput.append(newBtnValueOn);
-					newBtn.style.background = "#32CD32";
-					newBtnOutput.style.color = "black";
+					newBtn.style.filter = "brightness(100%)";
 				} else {
 					newBtnOutput.append(newBtnValueOff);
-					newBtnOutput.style.color = "white";
-					newBtn.style.background = "gray";
+							newBtn.style.filter = "brightness(70%)";
 				}
 			} else {
 				if (def == "on"){
 					if (localStorage.getItem(ls)){
 						newBtnOutput.append(newBtnValueOff);
-						newBtn.style.background = "gray";
-						newBtnOutput.style.color = "white";
+								newBtn.style.filter = "brightness(70%)";
 					} else {
 						newBtn.setAttribute("class", "on");
 						newBtnOutput.append(newBtnValueOn);
-						newBtnOutput.style.color = "black";
-						newBtn.style.background = "#32CD32";
+								newBtn.style.filter = "brightness(100%)";
 					}
 
 				}
@@ -278,19 +357,18 @@
 				if (def == "off"){
 					if (document.querySelector("button#" + id + ".on")){
                          localStorage.removeItem(ls);
-						 newBtn.style.background = "gray";
-						newBtnOutput.style.color = "white";
+						newBtn.style.filter = "";
 						newBtn.removeAttribute("class");
+								newBtn.style.filter = "brightness(70%)";
 						newBtnOutput.firstChild.remove();
 						newBtnOutput.append(newBtnValueOff);
 					} else {
 						if (!document.querySelector("button#" + id + ".on")){
                                  localStorage.setItem(ls, "true");
-								newBtnOutput.style.color = "black";
-								newBtn.style.background = "#32CD32";
 								newBtn.removeAttribute("class");
 								newBtn.setAttribute("class", "on");
 								newBtnOutput.firstChild.remove();
+								newBtn.style.filter = "brightness(100%)";
 								newBtnOutput.append(newBtnValueOn);
 							}
 					}
@@ -301,17 +379,16 @@
                              localStorage.setItem(ls, "true");
 							newBtnOutput.firstChild.remove();
 							newBtnOutput.append(newBtnValueOff);
-							newBtn.style.background = "gray";
+								newBtn.style.filter = "";
+								newBtn.style.filter = "brightness(70%)";
 							newBtn.removeAttribute("class");
-							newBtnOutput.style.color = "white";
 						} else {
 							if (!document.querySelector("button#" + id + ".on")){
 								localStorage.removeItem(ls);
 								newBtnOutput.firstChild.remove();
 								newBtnOutput.append(newBtnValueOn);
-								newBtn.style.background = "#32CD32";
+								newBtn.style.filter = "brightness(100%)";
 								newBtn.setAttribute("class", "on");
-								newBtnOutput.style.color = "black";
 
 							}
 						}
@@ -320,7 +397,7 @@
 				}
 			}
 
-			newBtn.style.borderRadius = "25px";
+			newBtn.style.borderRadius = "5px";
 			newBtn.style.padding = "10px";
 			newBtn.style.transition = "all 1s ease";
 			newBtnOutput.style.transition = "all 2s ease";
@@ -355,7 +432,7 @@
 			bleb.src = "https://github.com/GravityGYT/Script/blob/main/download.jpg?raw=true";
 
 			bleb.zIndex = "3";
-			
+
 			meny.appendChild(bleb);
 			/*
 			var checkBackground = setInterval(()=>{
