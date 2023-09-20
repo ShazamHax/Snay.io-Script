@@ -491,7 +491,7 @@ modmenu.appendChild(document.createElement("br"));
 				 swal("Please consider checking out my Patreon!");
 				 localStorage.setItem("seenShill", "1");
 			}
-
+/*
 			setTimeout(()=>{
 				var meny = document.querySelector("#overlays.fade-in");
 				var bleb = document.createElement("img");
@@ -502,16 +502,17 @@ modmenu.appendChild(document.createElement("br"));
 			bleb.zIndex = "3";
 
 			//meny.appendChild(bleb);
-			/*
+			
 			var checkBackground = setInterval(()=>{
 				if(!bleb.checkVisibility()){
 					clearInterval(checkBackground);
 					meny.appendChild(bleb);
 				}
 			});
-			*/
+			
 			bleb.style.position = "absolute";
 			}, 3000);
+*/
 			document.querySelector("#title").style.zIndex = "2";
 			document.querySelector("button#play-btn").style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/YouTube_play_buttom_dark_icon_%282013-2017%29.svg/800px-YouTube_play_buttom_dark_icon_%282013-2017%29.svg.png')";
 			document.querySelector("button#spectate-btn").style.backgroundImage = "url('https://www.freeiconspng.com/uploads/eye-icon--icon-search-engine-17.png')";
