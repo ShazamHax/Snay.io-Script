@@ -1,4 +1,4 @@
-
+window.loggedIn = false;
 	function isMobile() {
   return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 }
@@ -633,6 +633,7 @@ modmenu.appendChild(document.createElement("br"));
 		  const observer = new MutationObserver(function () {
 			const isLoggedIn = document.querySelector("#profile-btn.fade-in") !== null;
 			if (isLoggedIn) {
+				window.loggedIn = true;
 				console.log("Logged in, adding emojis settings");
 				if (!window.onMobile){
 					setTimeout(()=>{if (!document.querySelector(".emojiBindTitle")){
@@ -641,6 +642,7 @@ modmenu.appendChild(document.createElement("br"));
 					}, 5000);
 				}
 			} else {
+				window.loggedIn = false;
 				console.log("Logged out, removing emojis settings");
 				clearEmojisBinds();
 				document.querySelector("#account-lvl").innerText = "0";
@@ -1045,7 +1047,9 @@ modmenu.appendChild(document.createElement("br"));
 	var autoGetQuest = setInterval(()=>{
 if (document.querySelector("#quests-body")){
     if (document.querySelector("#quests-body").querySelector("button")){
+	if (window.loggedIn){
         document.querySelector("#quests-body").querySelector("button").click();
+	}
     }
 }
 })
