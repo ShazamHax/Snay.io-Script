@@ -429,11 +429,11 @@ modmenu.appendChild(document.createElement("br"));
 
 
 		// id, default, localStorageName, ButtonName
-		if (!window.onMobile){
+		//if (!window.onMobile){
 			var press4Btn = createModBtn("press4Btn", "off", "press4On", "4 key respawn");
 			var emojiBindingsButton = createModBtn("emojiBindings", "on", "emojiBindsOff", "Emoji Keybinds");
 			var mouseControls = createModBtn("mouseControls", "off", "mouseControlsOn", "Mouse Controls");
-		}
+		//}
 		var soundEffectsBtn = createModBtn("soundEffectsBtn", "on", "SoundEffectsOn", "Goofy ah Sounds");
 		var spamLastEmoteBtn = createModBtn("spamLastEmoteBtn", "off", "spamLastEmoteOn", "Spam Recent Emoji");
 		var spamEmojiBtn = createModBtn("spamEmojiBtn", "off", "spamEmojisOn", "Spam All Emojis");
