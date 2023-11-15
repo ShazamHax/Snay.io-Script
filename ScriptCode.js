@@ -1,7 +1,7 @@
 window.loggedIn = false;
 	function isMobile() {
 
-  return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0 || window.screen.width < 800;
+  return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
 
 }
 
