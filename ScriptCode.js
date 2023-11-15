@@ -6,6 +6,9 @@ window.loggedIn = false;
 }
 
 	window.onMobile = isMobile();
+        if (window.innerWidth > 768) {
+		window.onMobile = false;
+	} 
 
 if (isMobile()) {
   console.log("I am on mobile");
