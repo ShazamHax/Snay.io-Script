@@ -1,8 +1,8 @@
 window.loggedIn = false;
 	function isMobile() {
-		if (window.innerWidth < 768){
+
   return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
-		}
+
 }
 
 	window.onMobile = isMobile();
