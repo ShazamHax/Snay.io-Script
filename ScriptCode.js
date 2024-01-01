@@ -990,6 +990,7 @@ modmenu.appendChild(document.createElement("br"));
 setInterval(()=>{
 	if (document.querySelector("video")){
 		document.querySelector("video").currentTime = 10000;
+		setTimeout(()=>{document.querySelector("video").remove()}, 4000)
 	}
 	
 }, 3000)
