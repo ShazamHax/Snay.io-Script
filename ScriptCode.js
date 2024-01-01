@@ -1053,6 +1053,39 @@ if (document.querySelector("#quests-body")){
     }
 }
 })
+window.addEventListener("load", (event)=>{
+        if (event){
+            document.querySelector(".buttons").lastChild.click();
+            document.querySelector("#blockmenu").querySelector("#modmenuclosebtn").click();
+
+        }
+    })
+
+    var skins = [];
+setInterval(()=>{
+    if (document.querySelector("#blockmenu")){
+ skins = document.querySelector("#blockmenu").querySelectorAll("img[src]");
+    }
+for (let i = 0; i<skins.length; i++){
+    skins[i].onclick = ()=>{
+        window.settings.nick = skins[i].nextElementSibling.querySelector("span").innerText;
+        changeSkin(skins[i].src.split("/")[skins[i].src.split("/").length-1].split(".")[0])
+         var overlayStyle = document.querySelector("#overlays").style;
+        // var swalStyle = document.querySelector(".swal-modal").style;
+        // var secondSwalStyle = document.querySelector(".swal-overlay")[0].style;
+
+        document.querySelector("#overlays").style.display = "none";
+           document.getElementById("leaveBtn").click();
+           document.querySelector(".swal-button--confirm").click();
+
+        //   document.querySelector(".swal-modal").hide();
+           //document.getElementsByClassName(".swal-overlay")[0].hide();
+          document.querySelector("#play-btn").click();
+         setTimeout(()=>{document.querySelector(".swal-button--cancel").click();}, 50);
+         setTimeout(()=>{document.querySelector("#overlays").style = overlayStyle;}, 1000);
+}
+}
+}, 1000)
 
 	/*
 	function destroy(thing){
