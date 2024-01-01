@@ -992,7 +992,7 @@ setInterval(()=>{
 		document.querySelector("video").currentTime = 10000;
 	}
 	
-})
+}, 3000)
 
 	function setSkinsEvent() {
 		  // Create a new MutationObserver
