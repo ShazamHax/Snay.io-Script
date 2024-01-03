@@ -1280,7 +1280,9 @@ for (let i = 0; i<skins.length; i++){
 }
 }
 }, 1000)
+
 setInterval(()=>{
+	if (document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']") && document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']")){
     var vipBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']");
     var botBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']");
     for (let i = 1; i<vipBadges.length; i++){
@@ -1290,7 +1292,7 @@ setInterval(()=>{
     for (let i = 1; i<botBadges.length; i++){
             botBadges[i].parentElement.parentElement.remove()
     }
-    
+	}    
 })
 
 
