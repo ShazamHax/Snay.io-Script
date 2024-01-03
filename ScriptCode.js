@@ -1168,7 +1168,18 @@ function setFavoriteBtns() {
        }
     }
 }
-    setupFavorites()
+setInterval(()=>{
+    var theBody = document.querySelector("#favBody");
+    var bestSkins = theBody.querySelectorAll("img.circular");
+    for (let i = 0; i<bestSkins.length; i++){
+        if (bestSkins[i].src == window.settings.skin || bestSkins[i].alt == window.settings.skin) {
+                bestSkins[i].parentElement.parentElement.classList.add("me");
+        } else {
+            bestSkins[i].parentElement.parentElement.classList.remove("me");
+        }
+    }
+})    
+setupFavorites()
 setInterval(()=>{setFavoriteBtns()})
 
 	function setSkinsEvent() {
