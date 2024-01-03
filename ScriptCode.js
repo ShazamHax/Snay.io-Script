@@ -987,13 +987,14 @@ modmenu.appendChild(document.createElement("br"));
 		"https://www.snay.io/assets/skins/pellet_image.png",
 		"https://www.snay.io/assets/skins/heart.png"
 	]
-setInterval(()=>{
+/*setInterval(()=>{
 	if (document.querySelector("video")){
 		document.querySelector("video").currentTime = 10000;
 		setTimeout(()=>{document.querySelector("video").remove()}, 4000)
 	}
 	
 }, 3000)
+*/
 
 	function setSkinsEvent() {
 		  // Create a new MutationObserver
