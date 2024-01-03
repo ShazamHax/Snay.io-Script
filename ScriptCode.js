@@ -1098,7 +1098,9 @@ function setFavoriteBtns() {
            var newFavBtn = document.createElement("img");
            newFavBtn.classList.add("favBtn");
            newFavBtn.style = "transform: translate(60px, 0px); height: 30px; width: 30px; margin-top: 10px; margin-bottom: 100px; cursor: pointer"
-           skinsList[i].parentElement.append(newFavBtn);
+  if (!skinsList[i].parentElement.classList.toString().includes("customSkinContainer")){
+               skinsList[i].parentElement.append(newFavBtn);
+           }
             if (!localStorage.getItem("favSkins").includes(skinsList[i].src)){
                 newFavBtn.src = notFav;
                 newFavBtn.onclick = ()=>{
