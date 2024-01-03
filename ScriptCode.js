@@ -1018,11 +1018,14 @@ function addFav(theSkin) {
 
 						sklib.onclick = ()=>{
 							var name = theSkin.split(".")[theSkin.split(".").length-2].split("/")[theSkin.split(".")[theSkin.split(".").length-2].split("/").length-1]
-							if (theSkin.includes("http")){
-								changeSkin(theSkin)
-							} else {
-								changeSkin(name);
-							}
+							 if (theSkin.includes("assets/skins")){
+                                                                changeSkin(name);
+                            				} else {
+                               					 changeSkin(theSkin);
+
+
+
+							 }
 							
 						}
 						document.querySelector("#favBody").append(lin);
