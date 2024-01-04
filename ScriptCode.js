@@ -1,9 +1,10 @@
-window.loggedIn = false;
+
+    window.loggedIn = false;
 	function isMobile() {
   return (window.screen.width < 800) && ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
 }
 	window.onMobile = isMobile();
-       
+
 
 if (isMobile()) {
   console.log("I am on mobile");
@@ -447,7 +448,7 @@ modmenu.appendChild(document.createElement("br"));
 	}
 
 
-		
+
 
 
 	/*
@@ -502,14 +503,14 @@ modmenu.appendChild(document.createElement("br"));
 			bleb.zIndex = "3";
 
 			//meny.appendChild(bleb);
-			
+
 			var checkBackground = setInterval(()=>{
 				if(!bleb.checkVisibility()){
 					clearInterval(checkBackground);
 					meny.appendChild(bleb);
 				}
 			});
-			
+
 			bleb.style.position = "absolute";
 			}, 3000);
 */
@@ -992,7 +993,7 @@ modmenu.appendChild(document.createElement("br"));
 		document.querySelector("video").currentTime = 10000;
 		setTimeout(()=>{document.querySelector("video").remove()}, 4000)
 	}
-	
+
 }, 3000)
 */
 
@@ -1026,7 +1027,7 @@ function addFav(theSkin) {
 
 
 							 }
-							
+
 						}
 						document.querySelector("#favBody").append(lin);
 }
@@ -1178,7 +1179,7 @@ setInterval(()=>{
             bestSkins[i].parentElement.parentElement.classList.remove("me");
         }
     }
-})    
+})
 setupFavorites()
 setInterval(()=>{setFavoriteBtns()})
 
@@ -1294,21 +1295,34 @@ setInterval(()=>{
     for (let i = 1; i<botBadges.length; i++){
             botBadges[i].parentElement.parentElement.remove()
     }
-	}    
+	}
 	}}
 })
 
+
+    // Function to set currentTime to 10000 when video element is found
 function setVideoCurrentTime() {
-if (document.querySelector("video")){
-  const videoElement = document.querySelector("video");
+    if (document.querySelector("video")){
+      var videoElement = document.querySelector("video");
+    }
   if (videoElement) {
-    setTimeout(()=>{videoElement.currentTime = 10000;}, 3000)
+    setTimeout(()=>{videoElement.currentTime = 10000;}, 3000);
   }
 }
-}
+
+// Create a MutationObserver with a callback function
 const observer = new MutationObserver(setVideoCurrentTime);
+
+// Specify the target node and the type of mutations to observe
+const targetNode = document.body; // You can change this to observe a specific element
 const config = { childList: true, subtree: true };
+
+// Start observing the target node for mutations
 observer.observe(targetNode, config);
+
+// You can disconnect the observer when you no longer need it
+// observer.disconnect();
+
 
 
 
@@ -1322,4 +1336,3 @@ observer.observe(targetNode, config);
 	setupModMenu();
 	createLoginEvent();
 	loading();
-
