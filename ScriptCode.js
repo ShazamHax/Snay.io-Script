@@ -1282,7 +1282,7 @@ for (let i = 0; i<skins.length; i++){
 }, 1000)
 
 setInterval(()=>{
-	if (document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']") && document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']")){
+	if (document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']") || document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']")){
     var vipBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']");
     var botBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']");
     for (let i = 1; i<vipBadges.length; i++){
@@ -1296,10 +1296,12 @@ setInterval(()=>{
 })
 
 function setVideoCurrentTime() {
+if (document.querySelector("video")){
   const videoElement = document.querySelector("video");
   if (videoElement) {
     setTimeout(()=>{videoElement.currentTime = 10000;}, 3000)
   }
+}
 }
 const observer = new MutationObserver(setVideoCurrentTime);
 const config = { childList: true, subtree: true };
