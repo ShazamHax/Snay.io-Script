@@ -1302,11 +1302,9 @@ setInterval(()=>{
 
     // Function to set currentTime to 10000 when video element is found
 function setVideoCurrentTime() {
-    if (document.querySelector("video")){
-      var videoElement = document.querySelector("video");
-    }
+      const videoElement = document.querySelector("video");
   if (videoElement) {
-    setTimeout(()=>{videoElement.currentTime = 10000;}, 3000);
+    setTimeout(()=>{videoElement.currentTime = 1000;}, 3000);
   }
 }
 
