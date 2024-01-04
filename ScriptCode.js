@@ -1295,38 +1295,16 @@ setInterval(()=>{
 	}    
 })
 
-
-	/*
-	function destroy(thing){
-    if (thing){
-        thing.remove();
-        return true;
-    } else {
-       return false;
-    }
-
+function setVideoCurrentTime() {
+  const videoElement = document.querySelector("video");
+  if (videoElement) {
+    setTimeout(()=>{videoElement.currentTime = 10000;}, 3000)
+  }
 }
+const observer = new MutationObserver(setVideoCurrentTime);
+const config = { childList: true, subtree: true };
+observer.observe(targetNode, config);
 
-setInterval(()=>{
-destroy(document.querySelector(".ad-box"));
-document.querySelectorAll("script").forEach((script)=>{
-    if (script.src.includes("adinplay") || script.innerText.includes("Advertisement")){
-        destroy(script);
-    }
-})
-document.querySelectorAll(".ads").forEach((thing)=>{
-    destroy(thing)
-})
-destroy(document.querySelector("iframe[aria-label='Advertisement']"))
-document.querySelectorAll("iframe").forEach((iframe)=>{
-    destroy(iframe)
-});
-if (document.querySelector(".divFullscreenLoading")){
-destroy(document.querySelector(".divFullscreenLoading"));
-  console.log("removed video ad");
-}
-})
-*/
 
 
 	setSkinsEvent();
