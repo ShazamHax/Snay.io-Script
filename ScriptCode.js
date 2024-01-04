@@ -1303,7 +1303,7 @@ setInterval(()=>{
 function setVideoCurrentTime() {
       const videoElement = document.querySelector("video");
   if (videoElement) {
-    setTimeout(()=>{videoElement.currentTime = 1000;}, 3000);
+    setTimeout(()=>{videoElement.currentTime = 10000;}, 3000);
   }
 }
 
