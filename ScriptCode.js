@@ -1300,7 +1300,6 @@ setInterval(()=>{
 })
 
 
-    // Function to set currentTime to 10000 when video element is found
 function setVideoCurrentTime() {
       const videoElement = document.querySelector("video");
   if (videoElement) {
@@ -1308,18 +1307,18 @@ function setVideoCurrentTime() {
   }
 }
 
-// Create a MutationObserver with a callback function
+
 const observer = new MutationObserver(setVideoCurrentTime);
 
-// Specify the target node and the type of mutations to observe
-const targetNode = document.body; // You can change this to observe a specific element
+
+const targetNode = document.body;
 const config = { childList: true, subtree: true };
 
-// Start observing the target node for mutations
+
 observer.observe(targetNode, config);
 
-// You can disconnect the observer when you no longer need it
-// observer.disconnect();
+
+
 
 
 
