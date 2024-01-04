@@ -1282,6 +1282,8 @@ for (let i = 0; i<skins.length; i++){
 }, 1000)
 
 setInterval(()=>{
+	if (document.querySelector("#badge-gallery-body")){
+	if (document.querySelector("#badge-gallery-body").querySelector("img")){
 	if (document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']") || document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']")){
     var vipBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']");
     var botBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']");
@@ -1293,6 +1295,7 @@ setInterval(()=>{
             botBadges[i].parentElement.parentElement.remove()
     }
 	}    
+	}}
 })
 
 function setVideoCurrentTime() {
