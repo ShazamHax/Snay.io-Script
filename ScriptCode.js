@@ -3,7 +3,7 @@ window.loggedIn = false;
   return (window.screen.width < 800) && ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
 }
 	window.onMobile = isMobile();
-       
+
 if (isMobile()) {
   console.log("I am on mobile");
 } else {
@@ -369,7 +369,7 @@ modmenu.appendChild(document.createElement("br"));
 		document.querySelector("#modmenu").querySelector(".button-81").style.padding = "10px";
 		document.querySelector("#modmenu").querySelector(".button-81").style.background = "gray";
 	}
-		
+
 	/*
  const handleMutation = (mutationsList, observer) => {
             for (const mutation of mutationsList) {
@@ -412,14 +412,14 @@ modmenu.appendChild(document.createElement("br"));
 			bleb.src = "https://github.com/GravityGYT/Script/blob/main/download.jpg?raw=true";
 			bleb.zIndex = "3";
 			//meny.appendChild(bleb);
-			
+
 			var checkBackground = setInterval(()=>{
 				if(!bleb.checkVisibility()){
 					clearInterval(checkBackground);
 					meny.appendChild(bleb);
 				}
 			});
-			
+
 			bleb.style.position = "absolute";
 			}, 3000);
 */
@@ -806,15 +806,6 @@ modmenu.appendChild(document.createElement("br"));
 		"https://www.snay.io/assets/skins/pellet_image.png",
 		"https://www.snay.io/assets/skins/heart.png"
 	]
-setInterval(()=>{
-/*setInterval(()=>{
-	if (document.querySelector("video")){
-		document.querySelector("video").currentTime = 10000;
-		setTimeout(()=>{document.querySelector("video").remove()}, 4000)
-	}
-	
-}, 3000)
-*/
 
 	function setSkinsEvent() {
 		  // Create a new MutationObserver
@@ -905,35 +896,6 @@ for (let i = 0; i<skins.length; i++){
 }
 }
 }, 1000)
-	/*
-	function destroy(thing){
-    if (thing){
-        thing.remove();
-        return true;
-    } else {
-       return false;
-    }
-}
-setInterval(()=>{
-destroy(document.querySelector(".ad-box"));
-document.querySelectorAll("script").forEach((script)=>{
-    if (script.src.includes("adinplay") || script.innerText.includes("Advertisement")){
-        destroy(script);
-    }
-})
-document.querySelectorAll(".ads").forEach((thing)=>{
-    destroy(thing)
-})
-destroy(document.querySelector("iframe[aria-label='Advertisement']"))
-document.querySelectorAll("iframe").forEach((iframe)=>{
-    destroy(iframe)
-});
-if (document.querySelector(".divFullscreenLoading")){
-destroy(document.querySelector(".divFullscreenLoading"));
-  console.log("removed video ad");
-}
-})
-*/
 	setSkinsEvent();
 	setupUI();
 	setupCustomSkins();
