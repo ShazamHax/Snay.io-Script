@@ -1,23 +1,17 @@
-
-    window.loggedIn = false;
+window.loggedIn = false;
 	function isMobile() {
   return (window.screen.width < 800) && ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
 }
 	window.onMobile = isMobile();
-
-
+       
 if (isMobile()) {
   console.log("I am on mobile");
 } else {
   console.log("I am on PC");
 }
-
-
-
 	function setupUI(){
 		var style = document.createElement('style');
     style.type = 'text/css';
-
     // Define the CSS styles
     var css = `
         #modmenu {
@@ -28,7 +22,6 @@ if (isMobile()) {
             margin-right: -40px;
             padding-left: 10px;
         }
-
         #modmenuclosebtn {
             scale: 1;
             margin-top: 84px;
@@ -38,22 +31,17 @@ if (isMobile()) {
 			position: absolute;
 			left: -3%;
 			top: -14%;
-
-
         }
 		#title {
 		 z-index: 7;
 		}
-
         #modmenutitle {
             color: #7289da;
             margin-bottom: 10px;
         }
-
         #modmenusubtitle {
             color: #ffffff;
         }
-
         #modmenu .buttons {
             display: flex;
             flex-direction: column;
@@ -62,7 +50,6 @@ if (isMobile()) {
             margin-right: 3%;
             width: 100%;
         }
-
         #modmenu .buttons button {
             margin: 5px;
             padding: 5px 10px;
@@ -75,38 +62,30 @@ if (isMobile()) {
             cursor: pointer;
         }
     `;
-
     // Add the CSS styles to the <style> element
     if (style.styleSheet) {
         style.styleSheet.cssText = css;
     } else {
         style.appendChild(document.createTextNode(css));
     }
-
     // Append the <style> element to the document's <head>
     document.head.appendChild(style);
 		var modmenu = document.getElementById('modmenu');
-
     var modmenutitle = document.createElement('div');
     modmenutitle.id = 'modmenutitle';
     modmenutitle.textContent = 'Extras😉';
-
-
     var buttonsContainer = document.createElement('div');
-
     buttonsContainer.classList.add('buttons');
 modmenu.appendChild(modmenutitle);
 modmenu.appendChild(document.createElement("br"));
 modmenu.appendChild(document.createElement("br"));
 modmenu.appendChild(document.createElement("br"));
     modmenu.appendChild(buttonsContainer);
-
 		var myPatreon = document.createElement("div");
 		//myPatreon.style = "height: 50px; width: 120px; position: absolute; background-image: url('https://cdn.dribbble.com/users/2287419/screenshots/15177508/media/685ba889bceaec17a7742495ff1a4f92.gif'); border-radius: 25px; border: 2px solid blue";
 		myPatreon.style = "height: 50px; width: 120px; position: absolute; border-radius: 25px; border: 2px solid blue; background: gray; text-align: center; color: white;";
 		myPatreon.innerText = "Patreon";
 		document.querySelector("#main-menu").append(myPatreon)
-
 		myPatreon.style.top = "35px";
 		myPatreon.style.right = "5px";
 		myPatreon.style.backgroundSize = "100% 100%";
@@ -126,7 +105,6 @@ modmenu.appendChild(document.createElement("br"));
 		myDiscord.style.cursor = "pointer";
 		myDiscord.style.backgroundSize = "100% 100%";
 		myDiscord.style.backgroundRepeat = "no-repeat";
-
 		const logo = document.createElement("img");
 		const node = document.createElement("p");
 		const textnode = document.createTextNode("Shazam's snay.io script.   ");
@@ -210,60 +188,43 @@ modmenu.appendChild(document.createElement("br"));
 			document.querySelector("#keys").style.backgroundColor = "lightgray";
 			document.querySelector("#keys").style.borderRadius = "25px";
 	}
-
-
-
 	function setupCustomSkins(){
 		var customSkinList = ["https://yt3.googleusercontent.com/TNVorEJ9iTsESmUbcZXizwaZgy5jB-Ihx3z9qxfuuatrFRDhJHotz5x_X7mGIu38VBsr5bvlkg=s176-c-k-c0x00ffffff-no-rj", "https://cdn.discordapp.com/attachments/1114829833030074428/1120534848067604602/real.png" ]
-
-
 		function checkCustomSkin(customLink){
 			var customExists = false
-
 				var customSkins = document.querySelector(".customSkinContainer").children;
 			for (let i = 0; i<customSkins.length; i++){
 				if (customLink != customSkins[i].src){
 					customExists = false;
-
 				} else {
 					customExists = true;
 					break;
-
 				}
 			}
-
 			return customExists;
 		}
-
 			var mainContainer = document.querySelector("label[for='custom-skin']").nextElementSibling.querySelector("ul");
 		var customSkinContainer = document.createElement("ul");
 		customSkinContainer.setAttribute("class", "window-body");
 		customSkinContainer.classList.add("customSkinContainer");
-
 		var saveSkinBtn = document.createElement("button");
 		var saveSkinText = document.createTextNode("Save");
 		saveSkinBtn.append(saveSkinText);
 		saveSkinBtn.style = "height: 50px; width: 100px; background: lightgreen; border-radius: 25px;";
-
 		saveSkinBtn.onclick = ()=> {
 			if (document.querySelector("#customSkin").value && !checkCustomSkin(document.querySelector("#customSkin").value)){
 					addNewCustomSkin("Skin" + document.querySelector(".customSkinContainer").children.length, document.querySelector("#customSkin").value, 1);
 					if (localStorage.getItem("customSkins")){
 						localStorage.setItem("customSkins", localStorage.getItem("customSkins") + ", " + document.querySelector("#customSkin").value);
-
 					} else {
 						localStorage.setItem("customSkins", document.querySelector("#customSkin").value);
 					}
 				}
-
 		};
-
-
 		var removeSkinBtn = document.createElement("button");
 		var removeSkinText = document.createTextNode("Remove Last Saved Custom Skin");
 		removeSkinBtn.append(removeSkinText);
 		removeSkinBtn.style = "height: 50px; width:fit-content; background: red; border-radius: 25px; color: white;";
-
 		removeSkinBtn.onclick = ()=> {
 			if (localStorage.getItem("customSkins")){
 				var customLinks = localStorage.getItem("customSkins").split(",");
@@ -272,12 +233,8 @@ modmenu.appendChild(document.createElement("br"));
 				document.querySelectorAll(".custom")[document.querySelectorAll(".custom").length-1].remove();
 			}
 		}
-
-
 		var buttonContainer = document.createElement("li");
 		buttonContainer.style = "display: flex; height: fit-content; width: 100%; flex-direction: row";
-
-
 		//customSkinContainer.style = "width: 100%; height: fit-content; display: flex; flex-direction: row; column-gap: 10px; flex-wrap: wrap; overflow-y: scroll; row-gap: 10px;";
 		//mainContainer.append();
 		mainContainer.append(document.createElement("br"));
@@ -287,57 +244,37 @@ modmenu.appendChild(document.createElement("br"));
 		buttonContainer.append(removeSkinBtn);
 		mainContainer.append(document.createElement("br"));
 		mainContainer.append(customSkinContainer);
-
-
 		function addNewCustomSkin(name, link, custom) {
-
 			var newSkin = document.createElement("img");
-
 			if (custom == 0) {
 				newSkin.setAttribute("class", name);
 			} else {
 				if (custom == 1) {
 					newSkin.classList.add(name);
 					newSkin.classList.add("custom");
-
 				}
 			}
 			mainContainer.style = "";
 			 newSkin.classList.add("circular");
-
-
-
 			customSkinContainer.append(newSkin);
-
 			customSkinContainer.style.overflow = "visible"
 			document.querySelector("." + name).src = link;
 			document.querySelector("." + name).style = "height: 150px; width: 150px; border-radius: 50%; cursor: pointer; border: 1.5px solid blue; border-style: dotted; margin: 5px;";
 		document.querySelector("." + name).onclick = ()=>{settings.customSkin = link; connect(settings.server); document.querySelector(".windowclosebtn").click();};
 		}
-
-
-
-
 			if (customSkinList){
 				for (let i = 0; i<customSkinList.length; i++){
 					addNewCustomSkin("Skin" + i, customSkinList[i], 0);
 				}
 			}
-
-
-
 			if (localStorage.getItem("customSkins")){
 				var localCustomSkins = localStorage.getItem("customSkins").split(",");
 				for (let i = 0; i<localCustomSkins.length; i++){
 					addNewCustomSkin("Skin" + document.querySelector(".customSkinContainer").children.length, localCustomSkins[i], 1);
-
 				}
 			}
-
 		}
-
 	function setupModMenu(){
-
 		function createModBtn(id, def, ls, btnName){
 			var newBtn = document.createElement("button");
 			newBtn.setAttribute("id", id);
@@ -348,7 +285,6 @@ modmenu.appendChild(document.createElement("br"));
 			newBtn.append(newBtnOutput);
 			var newBtnValueOn = document.createTextNode(btnName +": On");
 			var newBtnValueOff = document.createTextNode(btnName +": Off");
-
 			if (def == "off"){
 				if (localStorage.getItem(ls)){
 					newBtn.setAttribute("class", "on");
@@ -368,10 +304,8 @@ modmenu.appendChild(document.createElement("br"));
 						newBtnOutput.append(newBtnValueOn);
 								newBtn.style.filter = "brightness(100%)";
 					}
-
 				}
 			}
-
 			newBtn.onclick = ()=>{
 				if (id == "soundEffectsBtn"){
 					soundEffects();
@@ -394,7 +328,6 @@ modmenu.appendChild(document.createElement("br"));
 								newBtnOutput.append(newBtnValueOn);
 							}
 					}
-
 				} else {
 					if (def == "on"){
 						if (document.querySelector("button#" + id + ".on")){
@@ -411,24 +344,17 @@ modmenu.appendChild(document.createElement("br"));
 								newBtnOutput.append(newBtnValueOn);
 								newBtn.style.filter = "brightness(100%)";
 								newBtn.setAttribute("class", "on");
-
 							}
 						}
-
 					}
 				}
 			}
-
 			newBtn.style.borderRadius = "5px";
 			newBtn.style.padding = "10px";
 			newBtn.style.transition = "all 1s ease";
 			newBtnOutput.style.transition = "all 2s ease";
-
 			return newBtn;
 		}
-
-
-
 		// id, default, localStorageName, ButtonName
 		if (!window.onMobile){
 			var press4Btn = createModBtn("press4Btn", "off", "press4On", "4 key respawn");
@@ -439,18 +365,11 @@ modmenu.appendChild(document.createElement("br"));
 		var spamLastEmoteBtn = createModBtn("spamLastEmoteBtn", "off", "spamLastEmoteOn", "Spam Recent Emoji");
 		var spamEmojiBtn = createModBtn("spamEmojiBtn", "off", "spamEmojisOn", "Spam All Emojis");
 		var respawnButton = createModBtn("respawnButton", "on", "respawnBtnOff", "Automatic Respawn");
-
 		document.querySelector(".buttons").append(document.querySelector("#modmenu").querySelector(".button-81"));
 		document.querySelector("#modmenu").querySelector(".button-81").style.padding = "10px";
 		document.querySelector("#modmenu").querySelector(".button-81").style.background = "gray";
-
-
 	}
-
-
-
-
-
+		
 	/*
  const handleMutation = (mutationsList, observer) => {
             for (const mutation of mutationsList) {
@@ -462,30 +381,22 @@ modmenu.appendChild(document.createElement("br"));
                     }
                 }
             }
-
             // Check if window.stats.mycells becomes 0
             if (typeof window.stats !== 'undefined' && window.stats.mycells === 0) {
                 document.querySelector("#overlays").style.backgroundImage = "url('" + backgroundImage + "')";
             }
         };
-
         // Options for the observer
         const observerOptions = {
             attributes: true, // Watch for changes to attributes
             attributeFilter: ['hidden'], // Only watch for changes to the "hidden" attribute
         };
-
         // Create the observer
         const overlaysElement = document.getElementById('overlays');
         const observer = new MutationObserver(handleMutation);
-
         // Start observing the "overlays" element
         observer.observe(overlaysElement, observerOptions);
 		*/
-
-
-
-
 	window.addEventListener("load", ()=>{
              if (localStorage.getItem("seenShill")){
 			} else {
@@ -499,18 +410,16 @@ modmenu.appendChild(document.createElement("br"));
 			bleb.style.height = "100%";
 		  bleb.style.width = "100%";
 			bleb.src = "https://github.com/GravityGYT/Script/blob/main/download.jpg?raw=true";
-
 			bleb.zIndex = "3";
-
 			//meny.appendChild(bleb);
-
+			
 			var checkBackground = setInterval(()=>{
 				if(!bleb.checkVisibility()){
 					clearInterval(checkBackground);
 					meny.appendChild(bleb);
 				}
 			});
-
+			
 			bleb.style.position = "absolute";
 			}, 3000);
 */
@@ -524,15 +433,10 @@ modmenu.appendChild(document.createElement("br"));
 			document.querySelector("#settings-btn").style.backgroundColor = "gray";
 		document.querySelector("#modmenu").style.height = "fit-content";
 				document.querySelector("label[for='custom-skin']").nextElementSibling.querySelector("li").style.height = "";
-
-
 	});
-
-
 	function setupEmojiSettings(){
 		var emojis = document.querySelector(".react-horizontal-scrolling-menu--scroll-container").querySelectorAll("img");
 		var emojiLinks = [];
-
 		var emojiBindTitle = document.createElement("span");
 		emojiBindTitle.innerText = "Custom Emoji Keybinds";
 		emojiBindTitle.setAttribute("class", "emojiBindTitle");
@@ -543,8 +447,6 @@ modmenu.appendChild(document.createElement("br"));
 			document.querySelector("#keys").append(emojiBindTitle);
 			document.querySelector("#keys").append(restoreEmojiBindsBtn);
 			restoreEmojiBindsBtn.onclick = ()=>{
-
-
 				var emojiBindBtns = document.querySelector("#keys").querySelectorAll("button");
 				for (let i = 0; i<emojiBindBtns.length; i++){
 					if (localStorage.getItem(emojiBindBtns[i].className)){
@@ -552,22 +454,15 @@ modmenu.appendChild(document.createElement("br"));
 					}
 					emojiBindBtns[i].innerText = "";
 				}
-
 				var defaultEmojiBinds = ["1", "2", "c", "v", "a", "s", "d", "x", "!", "z", "@", "A", "S", "D", "Z", "X", "C", "V"];
 				for (let i = 0; i<defaultEmojiBinds.length; i++){
 					emojiBindBtns[i].innerText = defaultEmojiBinds[i];
 				}
-
 			}
-
-
-
-
 		for (let i = 0; i<emojis.length; i++){
 			emojiLinks.push(emojis[i].src);
 		}
 		for (let i = 0; i<emojiLinks.length; i++){
-
 			var newEmoji = document.createElement("img");
 			var newButton = document.createElement("button");
 			newButton.style = "width: 50px; height: 50px;";
@@ -578,9 +473,7 @@ modmenu.appendChild(document.createElement("br"));
 			document.querySelector("#keys").append(newEmoji);
 			document.querySelector("#keys").append(newButton);
 		}
-
 		var emojiBindBtns = document.querySelector("#keys").querySelectorAll("button");
-
 		for (let i = 0; i<emojiBindBtns.length; i++){
 		const updateButtonText = (event) => {
 			if (event.key == "Backspace"){
@@ -592,12 +485,9 @@ modmenu.appendChild(document.createElement("br"));
 			localStorage.setItem(emojiBindBtns[i].className, emojiBindBtns[i].innerText);
 			emojiBindBtns[i].removeEventListener('keyup', updateButtonText);
 			}
-
 		  };
-
 		emojiBindBtns[i].onclick = ()=>{
 			emojiBindBtns[i].addEventListener("keyup", updateButtonText);
-
 		};
 		}
 				var defaultEmojiBinds = ["1", "2", "c", "v", "a", "s", "d", "x", "!", "z", "@", "A", "S", "D", "Z", "X", "C", "V"];
@@ -614,20 +504,16 @@ modmenu.appendChild(document.createElement("br"));
 					}
 				}
 			}
-
-
 			function clearEmojisBinds(){
 				document.querySelector(".emojiBindTitle").remove();
 				document.querySelector(".restoreEmojiBinds").remove();
 				document.querySelector("#keys").querySelectorAll("button").forEach((button)=>{button.remove()});
 				document.querySelector("#keys").querySelectorAll("img").forEach((button)=>{button.remove()});
 			}
-
 			function refreshEmojiSettings(){
 				clearEmojisBinds();
 				setupEmojiSettings();
 			}
-
 			// Function to create a custom event
 		function createLoginEvent() {
 		  // Create a new MutationObserver
@@ -651,7 +537,6 @@ modmenu.appendChild(document.createElement("br"));
 			    document.querySelector("#account-coins").innerText = "0";
 			}
 		  });
-
 		  // Start observing changes in the target element
 		  const targetElement = document.querySelector("#profile-btn");
 		  if (targetElement) {
@@ -660,12 +545,9 @@ modmenu.appendChild(document.createElement("br"));
 			console.error("Target element not found.");
 		  }
 		}
-
-
 	function randomIntFromInterval(min, max) { // min and max included
 		  return Math.floor(Math.random() * (max - min + 1) + min);
 		}
-
 	 function loading(){
 				document.addEventListener("keypress",function(event){
 					if (document.querySelector("button#press4Btn.on")) {
@@ -674,11 +556,9 @@ modmenu.appendChild(document.createElement("br"));
 							 var overlayStyle = document.querySelector("#overlays").style;
 							// var swalStyle = document.querySelector(".swal-modal").style;
 							// var secondSwalStyle = document.querySelector(".swal-overlay")[0].style;
-
 							document.querySelector("#overlays").style.display = "none";
 							   document.getElementById("leaveBtn").click();
 							   document.querySelector(".swal-button--confirm").click();
-
 							//   document.querySelector(".swal-modal").hide();
 							   //document.getElementsByClassName(".swal-overlay")[0].hide();
 							  document.querySelector("#play-btn").click();
@@ -688,11 +568,9 @@ modmenu.appendChild(document.createElement("br"));
 							 }
 						 }
 					}
-
 					if (document.querySelector("button#emojiBindings.on")){
 						if (document.querySelector("#keys").querySelector("button")){
 							var emojis = document.querySelector(".react-horizontal-scrolling-menu--scroll-container").querySelectorAll("img");
-
 							var emojiBindBtns = document.querySelector("#keys").querySelectorAll("button");
 							var setEmojiBinds = [];
 							for (let i = 0; i<emojiBindBtns.length; i++){
@@ -704,12 +582,10 @@ modmenu.appendChild(document.createElement("br"));
 							for (let i = 0; i<emojis.length; i++){
 								emojiLinks.push(emojis[i].src);
 							}
-
 							for (let i = 0; i<setEmojiBinds.length; i++){
 							if (emojiBindBtns) {
 								if (setEmojiBinds[i].innerText){
 								var daLink = emojiLinks[setEmojiBinds[i].className.split("Bind")[1]].replace("https://www.snay.io", ".");
-
 								if (event.key == setEmojiBinds[i].innerText){
 									if (document.querySelector("#chat_textbox").value == ""){
 										document.querySelector("img[src='"+ daLink + "']").click()
@@ -722,9 +598,6 @@ modmenu.appendChild(document.createElement("br"));
 			}
 		});
 		}
-
-
-
 				function soundEffects() {
 							var eatAudio = new Audio("https://github.com/ShazamHax/SoundEffects/blob/main/ScriptSounds/munch-sound-effect.mp3?raw=true");
 			var deathAudio = new Audio("https://github.com/ShazamHax/SoundEffects/blob/main/ScriptSounds/tmp_7901-951678082.mp3?raw=true");
@@ -737,17 +610,10 @@ modmenu.appendChild(document.createElement("br"));
 			var oldSplits;
 			setInterval(()=>{
 				if (document.querySelector("#soundEffectsBtn.on")){
-
-
-
 				if (window.stats.virusesEaten > oldVirusEaten){
-
 						popAudio.pause();
 					popAudio.currentTime = 0;
 					popAudio.play();
-
-
-
 				} else {
 					 if (window.stats.cellsEaten > oldCellsEaten) {
 					eatAudio.pause();
@@ -773,24 +639,18 @@ modmenu.appendChild(document.createElement("br"));
 				}
 				oldCellsEaten = window.stats.cellsEaten;
 				oldVirusEaten = window.stats.virusesEaten;
-
 				oldSplits = window.stats.mycells;
 				if (window.stats.mycells == 0) {
 					if (window.stats.score > 15000){
 						uSuckAudio.play();
 					} else {
 						deathAudio.play();
-
 					}
 				}
-
 				}
-
 			});
 			}
-
 		var emojiInterval = setInterval(()=>{
-
 			var emoteCards = document.querySelectorAll(".react-horizontal-scrolling-menu--item");
 			for (let i = 0; i<emoteCards.length; i++){
 				emoteCards[i].addEventListener("click", (click)=>{
@@ -802,19 +662,13 @@ modmenu.appendChild(document.createElement("br"));
 					if (document.querySelector("button#spamLastEmoteBtn.on")){
 						 document.querySelector("div[data-key='" + localStorage.getItem("lastEmote") + "']").firstChild.firstChild.click();
 					}
-
-
 					var emojiIndex;
 					var emojis = document.querySelectorAll(".card");
 					if (document.querySelector("button#spamEmojiBtn.on")){
 						emojiIndex = randomIntFromInterval(0, emojis.length-1);
 						emojis[emojiIndex].firstChild.click();
 					}
-
 			}, 800);
-
-
-
 		var gameover = document.querySelector("#game-over");
            	setInterval(()=> {
          if (document.querySelector("#chat")){
@@ -822,29 +676,21 @@ modmenu.appendChild(document.createElement("br"));
 				  var textElement = elem;
 				  var computedStyle = getComputedStyle(textElement);
 				  var textColor = computedStyle.color;
-
 				  // Extract RGB values from the color string
 				  var rgbValues = textColor.match(/\d+/g);
 				  var red = parseInt(rgbValues[0]);
 				  var green = parseInt(rgbValues[1]);
 				  var blue = parseInt(rgbValues[2]);
-
 				  // Calculate brightness using a common formula
 				  var brightness = (red * 299 + green * 587 + blue * 114) / 600;
-
 				  if (brightness < 128 && window.settings.darkTheme == true) {
 					  var num1 = 0.5;
 					textElement.style.textShadow = `-${num1}px -${num1}px 0 white, ${num1}px -${num1}px 0 white, -${num1}px ${num1}px 0 white, ${num1}px ${num1}px 0 white`;
 				  } else {
 					textElement.style.textShadow = `-${num1}px -${num1}px 0 black, ${num1}px -${num1}px 0 black, -${num1}px ${num1}px 0 black, ${num1}px ${num1}px 0 black`;
-
 				  }
-
 });
-
 		 }
-
-
 				if (window.isbot == true) {
 					signOut();
 				} else {
@@ -852,13 +698,10 @@ modmenu.appendChild(document.createElement("br"));
 						window.focus();
 					}
 				}
-
 			  if (document.querySelector("button#respawnButton.on")){
-
 				  if (document.querySelector("#game-over")){
 					  document.querySelector("#game-over").remove()
 				  }
-
 					if (stats.mycells == 0) {
 						play();
 					}
@@ -870,11 +713,8 @@ modmenu.appendChild(document.createElement("br"));
 					}
 				}
 		  }, 400);
-
-
 	      var modBtns = document.querySelector("#modmenu").querySelectorAll("button");
 			for (let i = 0; i<modBtns.length; i++){
-
 			modBtns[i].addEventListener("mouseenter", ()=>{
 				modBtns[i].style.transform = "scale(1.1)";
 			})
@@ -912,21 +752,16 @@ modmenu.appendChild(document.createElement("br"));
 					}
 				}
 				}
-
 			}, 1000);
-
-
 			setInterval(()=>{
 				if (document.querySelector("#modmenubtn").hidden == true && document.querySelector("#modmenu").hidden == true){
 					document.querySelector("#modmenubtn").hidden = "";
 				}
 			}, 1000);
-
 	function handleCanvasClickDown(event){
 			if (event.button === 0) {
 				// Left mouse button is clicked down
 				SplitStart();
-
 			}
 			if (event.button == 1) {
 				EjectStart();
@@ -935,12 +770,10 @@ modmenu.appendChild(document.createElement("br"));
 				// Right mouse button is clicked down
 				MacroStart();
 			}
-
 	}
 	function handleCanvasClickUp(event){
 		if (event.button === 0) {
 			// Left mouse button is released
-
 		}
 		if (event.button === 1){
 			EjectEnd();
@@ -949,36 +782,21 @@ modmenu.appendChild(document.createElement("br"));
 			// Right mouse button is released
 			MacroEnd();
 		}
-
 	}
-
-
 			setInterval(()=>{
 				if (window.settings.gamemode == "Selfeed"){
 						currentSplits.innerText = window.stats.mycells + "/64";
 				} else {
 						 currentSplits.innerText = window.stats.mycells + "/16";
 				}
-
               if (document.querySelector("#mouseControls.on")){
 				  document.querySelector("#glcanvas").addEventListener('mousedown', handleCanvasClickDown);
-
 					document.querySelector("#glcanvas").addEventListener('mouseup', handleCanvasClickUp);
-
-
-
 			  } else {
 				  document.querySelector("#glcanvas").removeEventListener('mousedown', handleCanvasClickDown);
-
 					document.querySelector("#glcanvas").removeEventListener('mouseup', handleCanvasClickUp);
-
 			  }
-
-
-
 			});
-
-
 	var cribl = [
 		"https://www.snay.io/assets/skins/Mei.png",
 		"https://www.snay.io/assets/skins/vani.png",
@@ -988,200 +806,15 @@ modmenu.appendChild(document.createElement("br"));
 		"https://www.snay.io/assets/skins/pellet_image.png",
 		"https://www.snay.io/assets/skins/heart.png"
 	]
+setInterval(()=>{
 /*setInterval(()=>{
 	if (document.querySelector("video")){
 		document.querySelector("video").currentTime = 10000;
 		setTimeout(()=>{document.querySelector("video").remove()}, 4000)
 	}
-
+	
 }, 3000)
 */
-
-function addFav(theSkin) {
-   var lin = document.createElement("li");
-						lin.classList.add("skin");
-						var spanf = document.createElement("span");
-						spanf.setAttribute("class", "skin-wrapper lazy-load-image-background blur lazy-load-image-loaded");
-						spanf.style = "color: transparent; display: inline-block; height: 150px; width: 150px;";
-						lin.appendChild(spanf);
-						lin.classList.add("favorite");
-
-						var sklib = document.createElement("img");
-						sklib.src = theSkin;
-						sklib.style.height = "150px";
-						sklib.style.width = "150px";
-						sklib.style.margin = "5px";
-						sklib.classList.add("circular");
-                        if (!document.querySelector("#favBody").querySelector("img[src='" + theSkin + "']")){
-						spanf.append(sklib);
-                        }
-						sklib.setAttribute("alt", theSkin.split(".")[theSkin.split(".").length-2].split("/")[theSkin.split(".")[theSkin.split(".").length-2].split("/").length-1]);
-
-						sklib.onclick = ()=>{
-							var name = theSkin.split(".")[theSkin.split(".").length-2].split("/")[theSkin.split(".")[theSkin.split(".").length-2].split("/").length-1]
-							 if (theSkin.includes("assets/skins")){
-                                                                changeSkin(name);
-                            				} else {
-                               					 changeSkin(theSkin);
-
-
-
-							 }
-
-						}
-						document.querySelector("#favBody").append(lin);
-}
-
-
-function setupFavorites(){
-
-    var favSkinsInput = document.createElement("input");
-
-    favSkinsInput.name = "gallery";
-
-    favSkinsInput.setAttribute("id", "favoriteSkins");
-
-    favSkinsInput.setAttribute("type", "radio");
-
-    var favSkinsLabel = document.createElement("label");
-
-    favSkinsLabel.setAttribute("for", "Favorites");
-
-    favSkinsLabel.innerText = "Favorites";
-    favSkinsLabel.classList.add("reflection")
-
-    document.querySelector(".tabs-wrapper").append(favSkinsInput);
-
-    document.querySelector(".tabs-wrapper").append(favSkinsLabel);
-
-    var favContainer = document.createElement("div");
-
-    var favBody = document.createElement("ul");
-
-    favBody.classList.add("window-body");
-favBody.setAttribute("id", "favBody")
-
-    favContainer.append(favBody);
-
-
-
-    document.querySelector(".tabs-wrapper").append(favContainer);
-
-    favSkinsLabel.onclick = ()=>{
-
-        favSkinsInput.checked = true;
-
-    }
-    if (localStorage.getItem("favSkins")){
-        var favSkinsList = localStorage.getItem("favSkins").split(",");
-        for (let i = 0; i<favSkinsList.length; i++){
-
-            if (favSkinsList[i] != ""){
-            addFav(favSkinsList[i]);
-            }
-
-
-
-        }
-    }
-
-}
-
-
-
-
-
-var notFav = "https://freepngimg.com/thumb/heart/2-2-heart-png-hd.png";
-
-var isFav = "https://www.freeiconspng.com/thumbs/heart-png/heart-png-15.png";
-
-function setFavoriteBtns() {
-    var skinsList = document.querySelector("#gallery").querySelectorAll("img.circular");
-    for (let i = 0; i< skinsList.length; i++){
-       if ( !skinsList[i].parentElement.querySelector(".favBtn")){
-           var newFavBtn = document.createElement("img");
-           newFavBtn.classList.add("favBtn");
-           newFavBtn.style = "transform: translate(60px, 0px); height: 30px; width: 30px; margin-top: 10px; margin-bottom: 100px; cursor: pointer"
-  if (!skinsList[i].parentElement.classList.toString().includes("customSkinContainer")){
-               skinsList[i].parentElement.append(newFavBtn);
-           }
-            if (!localStorage.getItem("favSkins").includes(skinsList[i].src)){
-                newFavBtn.src = notFav;
-                newFavBtn.onclick = ()=>{
-
-                    if (!localStorage.getItem("favSkins").includes(skinsList[i].src)){ // off to on
-                                        console.log("add " + skinsList[i].alt + " into fav skins")
-                    localStorage.setItem("favSkins", localStorage.getItem("favSkins") + "," + skinsList[i].src)
-                    skinsList[i].parentElement.querySelector(".favBtn").src = isFav;
-                        addFav(skinsList[i].src);
-                    }
-
-                }
-            } else {
-                newFavBtn.src = isFav;
-                newFavBtn.classList.add("fav")
-                newFavBtn.onclick = ()=>{
-                 if (localStorage.getItem("favSkins").includes(skinsList[i].src)){ // on to off
-                    console.log("remove " + skinsList[i].alt + " from fav skins")
-
-                    if (document.querySelector("#favBody").querySelector("img[src='" + skinsList[i].src + "']")){
-                        document.querySelector("#favBody").querySelector("img[src='" + skinsList[i].src + "']").parentElement.parentElement.remove();
-                        localStorage.setItem("favSkins",
-                                        localStorage.getItem("favSkins").replace("," + skinsList[i].src, "")
-                                )
-
-                    }
-                    skinsList[i].parentElement.querySelector(".favBtn").src = notFav;
-                 }
-                }
-
-            }
-       } else {
-           // put checks for dynamic change of heart and for onclick function
-
-
-           if (skinsList[i].parentElement.querySelector(".favBtn") && skinsList[i].parentElement.querySelector(".fav")){
-                   skinsList[i].parentElement.querySelector(".favBtn").onclick = ()=>{ // on to off dynamic
-                       skinsList[i].parentElement.querySelector(".favBtn").src = notFav;
-                       skinsList[i].parentElement.querySelector(".favBtn").classList.remove("fav");
-                       if (document.querySelector("#favBody").querySelector("img[src='" + skinsList[i].src + "']")){
-                        document.querySelector("#favBody").querySelector("img[src='" + skinsList[i].src + "']").parentElement.parentElement.remove();
-                        localStorage.setItem("favSkins",
-                                        localStorage.getItem("favSkins").replace("," + skinsList[i].src, "")
-                                )
-                    }
-                       console.log("remove " + skinsList[i].alt + " from favs")
-                   }
-           } else {
-               if (skinsList[i].parentElement.querySelector(".favBtn") && !skinsList[i].parentElement.querySelector(".fav")){
-                   skinsList[i].parentElement.querySelector(".favBtn").onclick = ()=>{ // off to on dynamic
-                   skinsList[i].parentElement.querySelector(".favBtn").src = isFav;
-                       skinsList[i].parentElement.querySelector(".favBtn").classList.add("fav");
-                         if (!localStorage.getItem("favSkins").includes(skinsList[i].src)){
-                             addFav(skinsList[i].src);
-
-                             localStorage.setItem("favSkins", localStorage.getItem("favSkins") + "," + skinsList[i].src);
-                        }
-                       console.log("add " + skinsList[i].alt + " to favs")
-                   }
-               }
-           }
-       }
-    }
-}
-setInterval(()=>{
-    var theBody = document.querySelector("#favBody");
-    var bestSkins = theBody.querySelectorAll("img.circular");
-    for (let i = 0; i<bestSkins.length; i++){
-        if (bestSkins[i].src == window.settings.skin || bestSkins[i].alt == window.settings.skin) {
-                bestSkins[i].parentElement.parentElement.classList.add("me");
-        } else {
-            bestSkins[i].parentElement.parentElement.classList.remove("me");
-        }
-    }
-})
-setupFavorites()
-setInterval(()=>{setFavoriteBtns()})
 
 	function setSkinsEvent() {
 		  // Create a new MutationObserver
@@ -1190,7 +823,6 @@ setInterval(()=>{setFavoriteBtns()})
 			if (isLoggedIn) {
 				setTimeout(()=>{
 				var oka = document.querySelector("#account-content").querySelectorAll("span")[2].innerText;
-
 					for (let i = 0; i<cribl.length; i++){
 						var lin = document.createElement("li");
 						lin.classList.add("skin");
@@ -1199,7 +831,6 @@ setInterval(()=>{setFavoriteBtns()})
 						spanf.style = "color: transparent; display: inline-block; height: 150px; width: 150px;";
 						lin.appendChild(spanf);
 						lin.classList.add("L4");
-
 						var sklib = document.createElement("img");
 						sklib.src = cribl[i];
 						sklib.style.height = "150px";
@@ -1217,7 +848,6 @@ setInterval(()=>{setFavoriteBtns()})
 						}
 						document.querySelector("label[for='own']").nextElementSibling.firstChild.append(lin);
 					}
-
 				}, 5000);
 			} else {
 				if (document.querySelectorAll(".L4")){
@@ -1229,7 +859,6 @@ setInterval(()=>{setFavoriteBtns()})
 				}
 			}
 		  });
-
 		  // Start observing changes in the target element
 		  const targetElement = document.querySelector("#profile-btn");
 		  if (targetElement) {
@@ -1238,7 +867,6 @@ setInterval(()=>{setFavoriteBtns()})
 			console.error("Target element not found.");
 		  }
 		}
-
 	var autoGetQuest = setInterval(()=>{
 if (document.querySelector("#quests-body")){
     if (document.querySelector("#quests-body").querySelector("button")){
@@ -1252,10 +880,8 @@ window.addEventListener("load", (event)=>{
         if (event){
             document.querySelector(".buttons").lastChild.click();
             document.querySelector("#blockmenu").querySelector("#modmenuclosebtn").click();
-
         }
     })
-
     var skins = [];
 setInterval(()=>{
     if (document.querySelector("#blockmenu")){
@@ -1268,11 +894,9 @@ for (let i = 0; i<skins.length; i++){
          var overlayStyle = document.querySelector("#overlays").style;
         // var swalStyle = document.querySelector(".swal-modal").style;
         // var secondSwalStyle = document.querySelector(".swal-overlay")[0].style;
-
         document.querySelector("#overlays").style.display = "none";
            document.getElementById("leaveBtn").click();
            document.querySelector(".swal-button--confirm").click();
-
         //   document.querySelector(".swal-modal").hide();
            //document.getElementsByClassName(".swal-overlay")[0].hide();
           document.querySelector("#play-btn").click();
@@ -1281,53 +905,36 @@ for (let i = 0; i<skins.length; i++){
 }
 }
 }, 1000)
-
-setInterval(()=>{
-	if (document.querySelector("#badge-gallery-body")){
-	if (document.querySelector("#badge-gallery-body").querySelector("img")){
-	if (document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']") || document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']")){
-    var vipBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']");
-    var botBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']");
-    for (let i = 1; i<vipBadges.length; i++){
-            vipBadges[i].parentElement.parentElement.remove()
+	/*
+	function destroy(thing){
+    if (thing){
+        thing.remove();
+        return true;
+    } else {
+       return false;
     }
-
-    for (let i = 1; i<botBadges.length; i++){
-            botBadges[i].parentElement.parentElement.remove()
-    }
-	}
-	}}
-})
-
-
-function setVideoCurrentTime() {
-      const videoElement = document.querySelector("video");
-  if (videoElement) {
-    setTimeout(()=>{videoElement.currentTime = 10000;}, 3000);
-  }
 }
-
-
-const observer = new MutationObserver(setVideoCurrentTime);
-
-
-const targetNode = document.body;
-const config = { childList: true, subtree: true };
-
-
-observer.observe(targetNode, config);
-
-
-
-
-
-
-
+setInterval(()=>{
+destroy(document.querySelector(".ad-box"));
+document.querySelectorAll("script").forEach((script)=>{
+    if (script.src.includes("adinplay") || script.innerText.includes("Advertisement")){
+        destroy(script);
+    }
+})
+document.querySelectorAll(".ads").forEach((thing)=>{
+    destroy(thing)
+})
+destroy(document.querySelector("iframe[aria-label='Advertisement']"))
+document.querySelectorAll("iframe").forEach((iframe)=>{
+    destroy(iframe)
+});
+if (document.querySelector(".divFullscreenLoading")){
+destroy(document.querySelector(".divFullscreenLoading"));
+  console.log("removed video ad");
+}
+})
+*/
 	setSkinsEvent();
-
-
-
-
 	setupUI();
 	setupCustomSkins();
 	setupModMenu();
