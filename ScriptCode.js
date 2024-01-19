@@ -906,6 +906,8 @@ setInterval(()=>{
     for (let i = 1; i<vipBadges.length; i++){
         vipBadges[i].parentElement.parentElement.remove();
     }
+document.querySelector("#badge-gallery-body").querySelector(".window-body").style.height = "fit-content";
+document.querySelector("#badge-gallery-body").querySelector(".window-body").style.width = "50%";
 })
 	setSkinsEvent();
 	setupUI();
