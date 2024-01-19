@@ -897,6 +897,19 @@ for (let i = 0; i<skins.length; i++){
 }
 }, 1000)
 
+document.querySelector("#badge-btn").onclick = ()=>{
+document.querySelector("#badge-btn").onclick(); 
+var theGallery = document.querySelector("#badge-gallery-body");
+var badges = theGallery.querySelectorAll(".circular");
+var uniqueBadges = [];
+for (let i = 0; i<badges.length; i++){
+    if (uniqueBadges.includes(badges[i].src)){
+        badges[i].parentElement.parentElement.remove();
+    } else {
+        uniqueBadges.push(badges[i].src);
+    }
+}
+
 	setSkinsEvent();
 	setupUI();
 	setupCustomSkins();
