@@ -898,6 +898,12 @@ for (let i = 0; i<skins.length; i++){
 }, 1000)
 
 setInterval(()=>{
+	var allBadges = document.querySelector("#badge-gallery-body").querySelectorAll("li.skin");
+for (let i = 0; i<allBadges.length; i++){
+    if (allBadges[i].querySelectorAll("span").length > 1){
+        allBadges[i].remove();
+    }
+}
     var botBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']")
     var vipBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']")
     for (let i = 1; i<botBadges.length; i++){
