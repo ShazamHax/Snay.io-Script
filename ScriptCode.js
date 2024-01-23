@@ -514,12 +514,129 @@ modmenu.appendChild(document.createElement("br"));
 				clearEmojisBinds();
 				setupEmojiSettings();
 			}
+
+
+function addBadge(id){
+    const theBody = document.querySelector("#badge-gallery-body").querySelector(".window-body");
+    let theLi = document.createElement("li");
+    theLi.classList.add("skin");
+    let theSpan = document.createElement("span");
+    theSpan.setAttribute("class", "skin-wrapper lazy-load-image-background blur lazy-load-image-loaded");
+    let newBadge = document.createElement("img");
+     newBadge.classList.add("circular");
+    let badgeNum = parseInt(id)-100;
+    newBadge.src = "./assets/img/badge" + badgeNum.toString() + ".png";
+    newBadge.style = "width: 150px; height: 150px; box-shadow: none";
+    newBadge.onclick = ()=>{
+        if (protoService.userInfo.badge == id){
+
+            protoService.useItem(0, 12);
+        } else {
+            protoService.useItem(id, 12);
+        }
+
+        theBody.querySelectorAll("img").forEach((b)=>{
+            if (b.src != newBadge.src){
+            b.classList.remove("selectedSkin")
+            }
+        })
+        if (newBadge.classList.toString().includes("selectedSkin")){
+            newBadge.classList.remove("selectedSkin")
+        } else {
+            newBadge.classList.add("selectedSkin")
+        }
+    }
+    theBody.append(theLi);
+    theLi.append(theSpan);
+    theSpan.append(newBadge);
+
+}
+
+function findUniqueBadges(){
+    var myBadges = protoService.userInfo.items;
+    var uniqueBadges = [];
+    for (let i = 0; i<myBadges.length; i++){
+        if (!uniqueBadges.includes(myBadges[i].id)){
+            uniqueBadges.push(myBadges[i].id)
+        }
+    }
+    return uniqueBadges;
+}
+    window.logins = 0;
 			// Function to create a custom event
 		function createLoginEvent() {
 		  // Create a new MutationObserver
 		  const observer = new MutationObserver(function () {
 			const isLoggedIn = document.querySelector("#profile-btn.fade-in") !== null;
 			if (isLoggedIn) {
+                if (window.logins >= 2){
+                    location.reload()
+                }
+                window.logins++;
+
+
+
+                window.clearedBadges = false;
+document.querySelector("#badge-gallery-body").querySelector(".window-body").style.height = "fit-content";
+document.querySelector("#badge-gallery-body").querySelector(".window-body").style.width = "50%";
+
+                var fixBadgesInterval = setInterval(()=>{
+                var bv = findUniqueBadges();
+                var bbs = document.querySelector("#badge-gallery-body").querySelector(".window-body").children;
+                while (bbs.length > 0 && !window.clearedBadges){
+                for (let i = 0; i<bbs.length; i++){
+                    bbs[i].remove()
+                    }
+                }
+
+                    if (bbs.length == 0){
+                        window.clearedBadges = true;
+                    for (let i = 0; i<bv.length; i++){
+                        addBadge(bv[i])
+                    }
+                        document.querySelector("#badge-gallery-body").querySelectorAll("img").forEach((img)=>{
+                            var properNum = protoService.userInfo.badge-100;
+                            if (img.src.includes(properNum.toString())){
+                                document.querySelector("img[src='./assets/img/badge" + properNum.toString() + ".png']").classList.add("selectedSkin");
+                            }
+                        })
+                        clearInterval(fixBadgesInterval)
+
+                    }
+
+
+
+
+                }, 1500)
+
+            var const_removeBadges = setInterval(()=>{
+                if (document.querySelector("#badge-gallery-body")){
+                    if (document.querySelector("#badge-gallery-body").querySelectorAll("li")){
+                var allBadges = document.querySelector("#badge-gallery-body").querySelectorAll("li");
+            for (let i = 0; i<allBadges.length; i++){
+                if (!allBadges[i].querySelectorAll("img")){
+                    allBadges[i].remove();
+                }
+            }
+                    }
+                }
+
+                if (document.querySelector("#badge-gallery-body")){
+                    if (document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']") || document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']")){
+    var botBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']")
+    var vipBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']")
+    for (let i = 1; i<botBadges.length; i++){
+        botBadges[i].parentElement.parentElement.remove();
+    }
+    for (let i = 1; i<vipBadges.length; i++){
+        vipBadges[i].parentElement.parentElement.remove();
+    }
+                    }
+                }
+})
+
+
+
 				window.loggedIn = true;
 				console.log("Logged in, adding emojis settings");
 				if (!window.onMobile){
@@ -529,6 +646,14 @@ modmenu.appendChild(document.createElement("br"));
 					}, 5000);
 				}
 			} else {
+                clearInterval(const_removeBadges)
+                window.clearedBadges = false;
+                var bbs = document.querySelector("#badge-gallery-body").querySelector(".window-body").children;
+                while (bbs.length > 0 && !window.clearedBadges){
+                for (let i = 0; i<bbs.length; i++){
+                    bbs[i].remove()
+                    }
+                }
 				window.loggedIn = false;
 				console.log("Logged out, removing emojis settings");
 				clearEmojisBinds();
@@ -897,24 +1022,6 @@ for (let i = 0; i<skins.length; i++){
 }
 }, 1000)
 
-setInterval(()=>{
-	var allBadges = document.querySelector("#badge-gallery-body").querySelectorAll("li.skin");
-for (let i = 0; i<allBadges.length; i++){
-    if (allBadges[i].querySelectorAll("span").length > 1){
-        allBadges[i].remove();
-    }
-}
-    var botBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge74.png']")
-    var vipBadges = document.querySelector("#badge-gallery-body").querySelectorAll("img[src='./assets/img/badge4.png']")
-    for (let i = 1; i<botBadges.length; i++){
-        botBadges[i].parentElement.parentElement.remove();
-    }
-    for (let i = 1; i<vipBadges.length; i++){
-        vipBadges[i].parentElement.parentElement.remove();
-    }
-document.querySelector("#badge-gallery-body").querySelector(".window-body").style.height = "fit-content";
-document.querySelector("#badge-gallery-body").querySelector(".window-body").style.width = "50%";
-})
 	setSkinsEvent();
 	setupUI();
 	setupCustomSkins();
