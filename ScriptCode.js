@@ -1,4 +1,3 @@
-    'use strict';
 window.loggedIn = false;
 	function isMobile() {
   return (window.screen.width < 800) && ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
@@ -574,7 +573,6 @@ function findUniqueBadges(){
 
 
                 window.clearedBadges = false;
-document.querySelector("#badge-gallery-body").querySelector(".window-body").style.height = "fit-content";
 document.querySelector("#badge-gallery-body").querySelector(".window-body").style.width = "50%";
 
                 var fixBadgesInterval = setInterval(()=>{
@@ -1025,4 +1023,3 @@ for (let i = 0; i<skins.length; i++){
 	setupModMenu();
 	createLoginEvent();
 	loading();
-
