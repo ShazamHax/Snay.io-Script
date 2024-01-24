@@ -1,3 +1,4 @@
+    'use strict';
 window.loggedIn = false;
 	function isMobile() {
   return (window.screen.width < 800) && ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
@@ -569,10 +570,6 @@ function findUniqueBadges(){
 		  const observer = new MutationObserver(function () {
 			const isLoggedIn = document.querySelector("#profile-btn.fade-in") !== null;
 			if (isLoggedIn) {
-                if (window.logins >= 2){
-                    location.reload()
-                }
-                window.logins++;
 
 
 
@@ -1028,3 +1025,4 @@ for (let i = 0; i<skins.length; i++){
 	setupModMenu();
 	createLoginEvent();
 	loading();
+
