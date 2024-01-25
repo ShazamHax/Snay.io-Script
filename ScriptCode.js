@@ -1103,7 +1103,7 @@ setInterval(()=>{
     for (let i = 0; i<chats.length; i++){
         if (chats[i].innerText.includes(".marco")){
             chats[i].innerText = chats[i].innerText.replace(".", "")
-            window.sendChat("polo");
+            window.sendChat("I love Shzm");
         }
     }
 })
