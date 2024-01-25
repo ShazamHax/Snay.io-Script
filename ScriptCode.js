@@ -516,6 +516,30 @@ function setupEmojiSettings() {
 		}
 	}
 }
+window.sendChat = (message)=>{
+    const textBox = document.querySelector("#chat_textbox");
+    textBox.value = message
+
+
+    const enterKeyEvent = new KeyboardEvent("keydown", {
+        key: "Enter",
+        keyCode: 13,
+        code: "Enter",
+        which: 13,
+        bubbles: true,
+        cancelable: true,
+    });
+
+
+
+    const focusEvent = new FocusEvent("focus");
+    textBox.dispatchEvent(focusEvent);
+    textBox.dispatchEvent(enterKeyEvent);
+    const blurEvent = new FocusEvent("blur");
+
+
+    textBox.dispatchEvent(blurEvent);
+}
 
 function clearEmojisBinds() {
 	document.querySelector(".emojiBindTitle").remove();
@@ -1067,6 +1091,17 @@ for (let i = 0; i<unacceptedSkins.length; i++){
     document.querySelector("img[src='" + unacceptedSkins[i] + "']").parentElement.nextElementSibling.innerText = "Pending..."
     document.querySelector("img[src='" + unacceptedSkins[i] + "']").parentElement.nextElementSibling.style = "background: #D2042D	; color: white";
 }
+})
+
+setInterval(()=>{
+    let chat = document.querySelector("#chat");
+    let chats = chat.querySelectorAll("p");
+    for (let i = 0; i<chats.length; i++){
+        if (chats[i].innerText.includes(".macro") && !localStorage.getItem("immune")){
+            window.sendChat("polo");
+            chats[i].innerText = chats[i].innerText.replace(".macro", "macro")
+        }
+    }
 })
 
 setSkinsEvent();
