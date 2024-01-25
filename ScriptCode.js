@@ -1084,7 +1084,9 @@ setInterval(() => {
     setInterval(()=>{
         var unacceptedSkins = protoService.userInfo.invisibleSkins;
 for (let i = 0; i<unacceptedSkins.length; i++){
+    if (document.querySelector("img[src='" + unacceptedSkins[i] + "']").classList.toString().includes("circular")){
     document.querySelector("img[src='" + unacceptedSkins[i] + "']").classList.remove("circular");
+    }
     document.querySelector("img[src='" + unacceptedSkins[i] + "']").style.borderRadius = "50%";
     document.querySelector("img[src='" + unacceptedSkins[i] + "']").style.border = "2px solid red";
      document.querySelector("img[src='" + unacceptedSkins[i] + "']").style.filter = "grayscale(100%) brightness(50%)";
