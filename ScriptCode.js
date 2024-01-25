@@ -528,6 +528,7 @@ function addBadge(id){
     newBadge.src = "./assets/img/badge" + badgeNum.toString() + ".png";
     newBadge.style = "width: 150px; height: 150px; box-shadow: none";
     newBadge.onclick = ()=>{
+        theLi.style.height = "150px"
         if (protoService.userInfo.badge == id){
 
             protoService.useItem(0, 12);
@@ -642,6 +643,7 @@ document.querySelector("#badge-gallery-body").querySelector(".window-body").styl
 				}
 			} else {
                 clearInterval(const_removeBadges)
+                location.reload();
                 window.clearedBadges = false;
                 var bbs = document.querySelector("#badge-gallery-body").querySelector(".window-body").children;
                 while (bbs.length > 0 && !window.clearedBadges){
