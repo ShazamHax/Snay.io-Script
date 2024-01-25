@@ -1084,6 +1084,7 @@ setInterval(() => {
     setInterval(()=>{
         var unacceptedSkins = protoService.userInfo.invisibleSkins;
 for (let i = 0; i<unacceptedSkins.length; i++){
+    if (document.querySelector("img[src='" + unacceptedSkins[i] + "']")){
     if (document.querySelector("img[src='" + unacceptedSkins[i] + "']").classList.toString().includes("circular")){
     document.querySelector("img[src='" + unacceptedSkins[i] + "']").classList.remove("circular");
     }
@@ -1092,6 +1093,7 @@ for (let i = 0; i<unacceptedSkins.length; i++){
      document.querySelector("img[src='" + unacceptedSkins[i] + "']").style.filter = "grayscale(100%) brightness(50%)";
     document.querySelector("img[src='" + unacceptedSkins[i] + "']").parentElement.nextElementSibling.innerText = "Pending..."
     document.querySelector("img[src='" + unacceptedSkins[i] + "']").parentElement.nextElementSibling.style = "background: #D2042D	; color: white";
+}
 }
 })
 
