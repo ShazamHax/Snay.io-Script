@@ -1098,12 +1098,12 @@ for (let i = 0; i<unacceptedSkins.length; i++){
 })
 
 setInterval(()=>{
-    let chat = document.querySelector("#chat");
-    let chats = chat.querySelectorAll("p");
+    var chat = document.querySelector("#chat");
+    var chats = chat.querySelectorAll("p");
     for (let i = 0; i<chats.length; i++){
-        if (chats[i].innerText.includes(".macro") && !localStorage.getItem("immune")){
+        if (chats[i].innerText.includes(".marco")){
+            chats[i].innerText = chats[i].innerText.replace(".", "")
             window.sendChat("polo");
-            chats[i].innerText = chats[i].innerText.replace(".macro", "macro")
         }
     }
 })
