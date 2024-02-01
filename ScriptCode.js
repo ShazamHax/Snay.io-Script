@@ -1,3 +1,4 @@
+    'use strict';
 window.loggedIn = false;
 
 function isMobile() {
@@ -288,15 +289,15 @@ function setupCustomSkins() {
 
 function setupModMenu() {
 	function createModBtn(id, def, ls, btnName) {
-		var newBtn = document.createElement("button");
+		const newBtn = document.createElement("button");
 		newBtn.setAttribute("id", id);
 		document.querySelector(".buttons").append(newBtn);
-		var newBtnOutput = document.createElement("output");
+		const newBtnOutput = document.createElement("output");
 		newBtnOutput.style.color = "white";
 		newBtnOutput.setAttribute("id", id + "OutputValue");
 		newBtn.append(newBtnOutput);
-		var newBtnValueOn = document.createTextNode(btnName + ": On");
-		var newBtnValueOff = document.createTextNode(btnName + ": Off");
+		const newBtnValueOn = document.createTextNode(btnName + ": On");
+		const newBtnValueOff = document.createTextNode(btnName + ": Off");
 		if (def == "off") {
 			if (localStorage.getItem(ls)) {
 				newBtn.setAttribute("class", "on");
@@ -369,14 +370,14 @@ function setupModMenu() {
 	}
 	// id, default, localStorageName, ButtonName
 	if (!window.onMobile) {
-		var press4Btn = createModBtn("press4Btn", "off", "press4On", "4 key respawn");
-		var emojiBindingsButton = createModBtn("emojiBindings", "on", "emojiBindsOff", "Emoji Keybinds");
-		var mouseControls = createModBtn("mouseControls", "off", "mouseControlsOn", "Mouse Controls");
+		const press4Btn = createModBtn("press4Btn", "off", "press4On", "4 key respawn");
+		const emojiBindingsButton = createModBtn("emojiBindings", "on", "emojiBindsOff", "Emoji Keybinds");
+		const mouseControls = createModBtn("mouseControls", "off", "mouseControlsOn", "Mouse Controls");
 	}
-	var soundEffectsBtn = createModBtn("soundEffectsBtn", "on", "SoundEffectsOn", "Goofy ah Sounds");
-	var spamLastEmoteBtn = createModBtn("spamLastEmoteBtn", "off", "spamLastEmoteOn", "Spam Recent Emoji");
-	var spamEmojiBtn = createModBtn("spamEmojiBtn", "off", "spamEmojisOn", "Spam All Emojis");
-	var respawnButton = createModBtn("respawnButton", "on", "respawnBtnOff", "Automatic Respawn");
+	const soundEffectsBtn = createModBtn("soundEffectsBtn", "on", "SoundEffectsOn", "Goofy ah Sounds");
+	const spamLastEmoteBtn = createModBtn("spamLastEmoteBtn", "off", "spamLastEmoteOn", "Spam Recent Emoji");
+	const spamEmojiBtn = createModBtn("spamEmojiBtn", "off", "spamEmojisOn", "Spam All Emojis");
+	const respawnButton = createModBtn("respawnButton", "on", "respawnBtnOff", "Automatic Respawn");
 	document.querySelector(".buttons").append(document.querySelector("#modmenu").querySelector(".button-81"));
 	document.querySelector("#modmenu").querySelector(".button-81").style.padding = "10px";
 	document.querySelector("#modmenu").querySelector(".button-81").style.background = "gray";
@@ -615,6 +616,7 @@ function createLoginEvent() {
 
 
 
+            /*
 			window.clearedBadges = false;
 			document.querySelector("#badge-gallery-body").querySelector(".window-body").style.width = "50%";
 
@@ -646,7 +648,9 @@ function createLoginEvent() {
 
 
 			}, 1500)
+            */
 
+            /*
 			var const_removeBadges = setInterval(() => {
 				if (document.querySelector("#badge-gallery-body")) {
 					if (document.querySelector("#badge-gallery-body").querySelectorAll("li")) {
@@ -672,6 +676,7 @@ function createLoginEvent() {
 					}
 				}
 			})
+            */
 
 
 
@@ -685,6 +690,7 @@ function createLoginEvent() {
 				}, 5000);
 			}
 		} else {
+            /*
 			clearInterval(const_removeBadges)
 			location.reload();
 			window.clearedBadges = false;
@@ -694,6 +700,7 @@ function createLoginEvent() {
 					bbs[i].remove()
 				}
 			}
+            */
 			window.loggedIn = false;
 			console.log("Logged out, removing emojis settings");
 			clearEmojisBinds();
