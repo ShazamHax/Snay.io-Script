@@ -1103,6 +1103,170 @@ for (let i = 0; i<unacceptedSkins.length; i++){
 }
 }
 })
+    function addFav(theSkin) {
+   var lin = document.createElement("li");
+						lin.classList.add("skin");
+						var spanf = document.createElement("span");
+						spanf.setAttribute("class", "skin-wrapper lazy-load-image-background blur lazy-load-image-loaded");
+						spanf.style = "color: transparent; display: inline-block; height: 150px; width: 150px;";
+						lin.appendChild(spanf);
+						lin.classList.add("favorite");
+
+						var sklib = document.createElement("img");
+						sklib.src = theSkin;
+						sklib.style.height = "150px";
+						sklib.style.width = "150px";
+						sklib.style.margin = "5px";
+						sklib.classList.add("circular");
+                        if (!document.querySelector("#favBody").querySelector("img[src='" + theSkin + "']")){
+						spanf.append(sklib);
+                        }
+						sklib.setAttribute("alt", theSkin.split(".")[theSkin.split(".").length-2].split("/")[theSkin.split(".")[theSkin.split(".").length-2].split("/").length-1]);
+
+						sklib.onclick = ()=>{
+							var name = theSkin.split(".")[theSkin.split(".").length-2].split("/")[theSkin.split(".")[theSkin.split(".").length-2].split("/").length-1]
+							changeSkin(name);
+						}
+						document.querySelector("#favBody").append(lin);
+}
+
+
+function setupFavorites(){
+
+    var favSkinsInput = document.createElement("input");
+
+    favSkinsInput.name = "gallery";
+
+    favSkinsInput.setAttribute("id", "favoriteSkins");
+
+    favSkinsInput.setAttribute("type", "radio");
+
+    var favSkinsLabel = document.createElement("label");
+
+    favSkinsLabel.setAttribute("for", "Favorites");
+
+    favSkinsLabel.innerText = "Favorites";
+    favSkinsLabel.classList.add("reflection")
+
+    document.querySelector(".tabs-wrapper").append(favSkinsInput);
+
+    document.querySelector(".tabs-wrapper").append(favSkinsLabel);
+
+    var favContainer = document.createElement("div");
+
+    var favBody = document.createElement("ul");
+
+    favBody.classList.add("window-body");
+favBody.setAttribute("id", "favBody")
+
+    favContainer.append(favBody);
+
+
+
+    document.querySelector(".tabs-wrapper").append(favContainer);
+
+    favSkinsLabel.onclick = ()=>{
+
+        favSkinsInput.checked = true;
+
+    }
+    if (localStorage.getItem("favSkins")){
+        var favSkinsList = localStorage.getItem("favSkins").split(",");
+        for (let i = 0; i<favSkinsList.length; i++){
+
+            if (favSkinsList[i] != ""){
+            addFav(favSkinsList[i]);
+            }
+
+
+
+        }
+    }
+
+}
+
+
+
+
+
+var notFav = "https://freepngimg.com/thumb/heart/2-2-heart-png-hd.png";
+
+var isFav = "https://www.freeiconspng.com/thumbs/heart-png/heart-png-15.png";
+
+function setFavoriteBtns() {
+    var skinsList = document.querySelector("#gallery").querySelectorAll("img.circular");
+    for (let i = 0; i< skinsList.length; i++){
+       if ( !skinsList[i].parentElement.querySelector(".favBtn")){
+           var newFavBtn = document.createElement("img");
+           newFavBtn.classList.add("favBtn");
+           newFavBtn.style = "transform: translate(60px, 0px); height: 30px; width: 30px; margin-top: 10px; margin-bottom: 100px; cursor: pointer"
+           skinsList[i].parentElement.append(newFavBtn);
+            if (!localStorage.getItem("favSkins").includes(skinsList[i].src)){
+                newFavBtn.src = notFav;
+                newFavBtn.onclick = ()=>{
+
+                    if (!localStorage.getItem("favSkins").includes(skinsList[i].src)){ // off to on
+                                        console.log("add " + skinsList[i].alt + " into fav skins")
+                    localStorage.setItem("favSkins", localStorage.getItem("favSkins") + "," + skinsList[i].src)
+                    skinsList[i].parentElement.querySelector(".favBtn").src = isFav;
+                        addFav(skinsList[i].src);
+                    }
+
+                }
+            } else {
+                newFavBtn.src = isFav;
+                newFavBtn.classList.add("fav")
+                newFavBtn.onclick = ()=>{
+                 if (localStorage.getItem("favSkins").includes(skinsList[i].src)){ // on to off
+                    console.log("remove " + skinsList[i].alt + " from fav skins")
+
+                    if (document.querySelector("#favBody").querySelector("img[src='" + skinsList[i].src + "']")){
+                        document.querySelector("#favBody").querySelector("img[src='" + skinsList[i].src + "']").parentElement.parentElement.remove();
+                        localStorage.setItem("favSkins",
+                                        localStorage.getItem("favSkins").replace("," + skinsList[i].src, "")
+                                )
+
+                    }
+                    skinsList[i].parentElement.querySelector(".favBtn").src = notFav;
+                 }
+                }
+
+            }
+       } else {
+           // put checks for dynamic change of heart and for onclick function
+
+
+           if (skinsList[i].parentElement.querySelector(".favBtn") && skinsList[i].parentElement.querySelector(".fav")){
+                   skinsList[i].parentElement.querySelector(".favBtn").onclick = ()=>{ // on to off dynamic
+                       skinsList[i].parentElement.querySelector(".favBtn").src = notFav;
+                       skinsList[i].parentElement.querySelector(".favBtn").classList.remove("fav");
+                       if (document.querySelector("#favBody").querySelector("img[src='" + skinsList[i].src + "']")){
+                        document.querySelector("#favBody").querySelector("img[src='" + skinsList[i].src + "']").parentElement.parentElement.remove();
+                        localStorage.setItem("favSkins",
+                                        localStorage.getItem("favSkins").replace("," + skinsList[i].src, "")
+                                )
+                    }
+                       console.log("remove " + skinsList[i].alt + " from favs")
+                   }
+           } else {
+               if (skinsList[i].parentElement.querySelector(".favBtn") && !skinsList[i].parentElement.querySelector(".fav")){
+                   skinsList[i].parentElement.querySelector(".favBtn").onclick = ()=>{ // off to on dynamic
+                   skinsList[i].parentElement.querySelector(".favBtn").src = isFav;
+                       skinsList[i].parentElement.querySelector(".favBtn").classList.add("fav");
+                         if (!localStorage.getItem("favSkins").includes(skinsList[i].src)){
+                             addFav(skinsList[i].src);
+
+                             localStorage.setItem("favSkins", localStorage.getItem("favSkins") + "," + skinsList[i].src);
+                        }
+                       console.log("add " + skinsList[i].alt + " to favs")
+                   }
+               }
+           }
+       }
+    }
+}
+    setupFavorites()
+setInterval(()=>{setFavoriteBtns()})
 
 
 
