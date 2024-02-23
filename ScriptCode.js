@@ -112,7 +112,7 @@ function setupUI() {
 	const node = document.createElement("p");
 	const textnode = document.createTextNode("Shazam's snay.io script.   ");
 	const menuTitle = document.querySelector("#title");
-	menuTitle.src = "https://cdn.discordapp.com/attachments/1114383797409021992/1127586457192775700/shazam_2.png";
+	menuTitle.src = "https://github.com/GravityGYT/Script/blob/main/shazam.png?raw=true";
 	menuTitle.style.position = "absolute";
 	menuTitle.style.top = "-5%";
 	menuTitle.style.zIndex = "7";
