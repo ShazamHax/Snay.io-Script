@@ -134,7 +134,7 @@ function setupUI() {
 	logo.style.top = "5%";
 	logo.style.borderRadius = "50%";
 	logo.style.opacity = "70%";
-	logo.src = "https://cdn.discordapp.com/attachments/1114383797409021992/1132122032298008576/wonder_1689985693221.jpg";
+	logo.src = "https://yt3.googleusercontent.com/TNVorEJ9iTsESmUbcZXizwaZgy5jB-Ihx3z9qxfuuatrFRDhJHotz5x_X7mGIu38VBsr5bvlkg=s176-c-k-c0x00ffffff-no-rj";
 	logo.style.height = "10%";
 	logo.style.width = "6%";
 	logo.style.border = "2px solid black";
