@@ -1203,7 +1203,17 @@ var notFav = "https://freepngimg.com/thumb/heart/2-2-heart-png-hd.png";
 var isFav = "https://www.freeiconspng.com/thumbs/heart-png/heart-png-15.png";
 
 function setFavoriteBtns() {
-    var skinsList = document.querySelector("#gallery").querySelectorAll("img.circular");
+
+    var skinsList = [];
+    var images = document.querySelector("#gallery").querySelectorAll("img");
+    for (let i = 0; i<images.length; i++){
+        if (images[i].className.toString().includes("circular")){
+            skinsList.push(images[i])
+        }
+    }
+
+
+
     for (let i = 0; i< skinsList.length; i++){
        if ( !skinsList[i].parentElement.querySelector(".favBtn")){
            var newFavBtn = document.createElement("img");
