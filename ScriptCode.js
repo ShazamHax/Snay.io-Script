@@ -853,6 +853,8 @@ var emojiInterval = setInterval(() => {
 }, 800);
 var gameover = document.querySelector("#game-over");
 setInterval(() => {
+			play();
+
 	if (document.querySelector("#chat")) {
 		document.querySelector("#chat").querySelectorAll("p").forEach((elem) => {
 			var textElement = elem;
